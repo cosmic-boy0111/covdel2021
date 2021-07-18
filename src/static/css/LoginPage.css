@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+
+.log_main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(183, 201, 216);
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    background: linear-gradient(to bottom, #33ccff 0%, #cc99ff 100%);
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.info_div{
+    /* line-height: 3rem; */
+    width: 45%;
+}
+
+.store_name{
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.about_store{
+    opacity: 0.6;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.btn_div{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.link{
+    text-decoration: none;
+}
+
+.page_img{
+    position: relative;
+    left: 0;
+    animation: gaurav 3s ease-in-out 0s infinite forwards;
+}
+
+@keyframes gaurav {
+    0%{
+        left: -4rem;
+    }
+    25%{            
+        left: 8rem;
+    }
+    /* 75%{
+        left: -4rem;
+    } */
+    100%{
+        left: -4rem;
+    }
+}
+
+
+
+
+
+
