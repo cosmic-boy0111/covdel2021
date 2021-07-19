@@ -1,119 +1,76 @@
 import React,{useState} from 'react'
 import Login from './Login'
-import Popup from "reactjs-popup";
-import NavBar from './buyer_temp/NavBar';
-import Slider from './buyer_temp/Slider';
-import Food_store from './buyer_temp/store/Food_store';
-import Fruit_store from './buyer_temp/store/Fruit_store';
-import Fashion_store from './buyer_temp/store/Fashion_store';
 import '../static/css/Buyer.css'
-import FastfoodRoundedIcon from '@material-ui/icons/FastfoodRounded';
-import KitchenRoundedIcon from '@material-ui/icons/KitchenRounded';
-import DevicesOtherRoundedIcon from '@material-ui/icons/DevicesOtherRounded';
-import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
-import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
-import EmojiEmotionsRoundedIcon from '@material-ui/icons/EmojiEmotionsRounded';
-import Button from '@material-ui/core/Button';
-import Slide from './buyer_temp/Slide';
 import Fab from '@material-ui/core/Fab';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Tooltip } from '@material-ui/core';
+import NavBar from './buyer_temp/NavBar'
 
-const Food = () => {
-    return(
-        Food_store.map((val) => <Slide 
-                    key={val.id}
-                    img={val.img}
-                    name={val.name}
-                    rating={val.rating}
-                    prize={val.prize}
-                    desc={val.desc}
-                />)
-    )
-}
+import Food from './buyer_temp/subPages/Food';
+// import Fruit from './buyer_temp/subPages/Fruit';
+import Fashion from './buyer_temp/subPages/Fashion';
+import Product from './buyer_temp/subPages/Product';
+import SideBar from './buyer_temp/subPages/SideBar';
+import MoreInfo from './buyer_temp/MoreInfo';
+import Fruit from './buyer_temp/subPages/Fruit';
 
-const Fruit = () => {
-    return(
-        Fruit_store.map((val) => <Slide 
-                    key={val.id}
-                    img={val.img}
-                    name={val.name}
-                    rating={val.rating}
-                    prize={val.prize}
-                    desc={val.desc}
-                />)
-    )
-}
-
-const Fashion = () => {
-    return (
-        Fashion_store.map((val) => <Slide 
-                    key={val.id}
-                    img={val.img}
-                    name={val.name}
-                    rating={val.rating}
-                    prize={val.prize}
-                    desc={val.desc}
-                />)
-    )
-}
-
-
-const Product = () =>{
-    return(
-        <div className='product'>
-                    <h3>New Products</h3>
-                    <div className="new_product_div"><Slider bool={true}/></div>
-                    <h3>Top Products</h3>
-                    <div className="top_product_div"><Slider bool={false}/></div>
-                    <h3>Our Products</h3>
-                    <div className="All_product_div">
-                        <Food />
-                        <Fruit />
-                        <Fashion />
-                    
-                    </div>
-                    
-                </div>
-    )
-}
-
-const SideBar = () => {
-    return(
-        <div className="side_bar">
-                        <div><FastfoodRoundedIcon />
-                            <a href="/food">
-                             food <KeyboardArrowRightRoundedIcon/> 
-                            </a>
-                        </div>
-                        <div><KitchenRoundedIcon/> 
-                            <a href="/fruitVeg">
-                             fruit and veg <KeyboardArrowRightRoundedIcon/>
-                            </a>
-                        </div>
-                        <div><DevicesOtherRoundedIcon />
-                            <a href="/fashion">
-                                fashion <KeyboardArrowRightRoundedIcon/>
-                            </a>
-                        </div>
-                        <div><PersonRoundedIcon /> men <KeyboardArrowRightRoundedIcon/></div>
-                        <div><FaceRoundedIcon /> women <KeyboardArrowRightRoundedIcon/></div>
-                        <div><EmojiEmotionsRoundedIcon /> kids <KeyboardArrowRightRoundedIcon/></div>
-                </div>
-    )
-}
 
 
 const Buyer = () => {
 
+
+
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(true)
+    const [what, setWhat] = useState('home')
+    const [obj, setObj] = useState({})
+    const [title, setTitle] = useState('')
+
+
+    const [like, setLike] = useState([])
+    const [cart, setCart] = useState([])
+
+    const useMe = () => {
+        if(what==='home'){
+            console.log(like);
+            console.log(cart);
+            return <Product setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+            // return <Food setLike={setLike} setCart={setCart} setWhat={set} />
+        }else if(what==='food'){
+            console.log(like);
+            console.log(cart);
+            // return <Product setLike={setLike} setCart={setCart}/>
+            return(
+                <>
+                <h3>Food Products</h3>
+                <Food setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+                </> 
+            )
+        }else if(what==='fruit'){
+            console.log(like);
+            console.log(cart);
+            return (
+                <>
+                <h3>Fruit and Veg Products</h3>
+                <Fruit setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+                </>
+            )
+        }else if(what==='fashion'){
+            console.log(like);
+            console.log(cart);
+            return (
+                <>
+                <h3>Fashion Products</h3>
+                <Fashion setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+                </>
+            )
+        }else if(what==='more'){
+            return <MoreInfo obj={obj} title={title} setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+        }
+    }
+
 
 
     
@@ -125,15 +82,19 @@ const Buyer = () => {
             <Login meth1={setShow1} meth2={setShow2} />
             </div>
             <div style={{display: show2 ? 'block':'none'}} className='product_container'>
-                            <SideBar />
-                            <Product />
+                <SideBar setWhat={setWhat}/>
+                        <div className='product'>
+                            {useMe()}
+                        </div>
                 <div className='cart_btn'>
+                        <Tooltip title="Go to CartList"> 
                     <Fab color="secondary" aria-label="add" >
                         <ShoppingCartRoundedIcon />
                     </Fab>
+                    </Tooltip>
                 </div>
-                {/* <div className='product'></div> */}
             </div>
+            <ToastContainer style={{width:'28%'}}/>
         </div>
         </>
     )

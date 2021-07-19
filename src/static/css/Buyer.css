@@ -1,3 +1,5 @@
+
+
 .product_container{
     /* display: flex;
     flex-direction: row; */
@@ -36,11 +38,12 @@
     cursor: pointer;
     color: black;
     text-decoration: none;
-    opacity: 0.7;
+    /* opacity: 0.7; */
 }
 
 .side_bar div:hover{
     opacity: 1;
+    font-weight: bold;
 }
 
 .product {
@@ -59,9 +62,10 @@
 
 .All_product_div{
     /* width: 500px; */
-    width: 100%;
+    /* width: 100%; */
     /* display: flex; */
     /* justify-content: stretch; */
+    margin: 1rem 2rem;
 }
 
 .cart_btn{

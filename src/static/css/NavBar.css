@@ -3,9 +3,11 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     margin: 1rem 2rem;
     border-radius: 5px;
-    /* z-index: 2;
-    position: fixed;
+    z-index: 2;
+    /* position: fixed;
     width: 95%; */
+    /* position: fixed;
+    top: 1rem; */
 }
 
 .nav_logo{

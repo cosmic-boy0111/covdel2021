@@ -4,9 +4,11 @@ import Carousel from 'react-elastic-carousel';
 import Slide from './Slide'
 import New_Store from './New_Store';
 import Top_Store from './Top_Store';
+import uuid from 'react-uuid'
 
 
-const Slider = ({bool}) => {
+
+const Slider = (props) => {
 
     const breakPoints = [
         {width: 1, itemsToShow: 1},
@@ -19,13 +21,19 @@ const Slider = ({bool}) => {
     return (
         <div className="App">
             <Carousel breakPoints={breakPoints} >
-                {(bool?New_Store:Top_Store).map((val) => <Slide 
+                {(props.bool?New_Store:Top_Store).map((val) => <Slide 
                     key={val.id}
+                    id={val.id}
                     img={val.img}
                     name={val.name}
                     rating={val.rating}
                     prize={val.prize}
+                    title={val.title}
                     desc={val.desc}
+                    setLike={props.setLike} setCart={props.setCart}
+                    toast={props.toast}
+                    setWhat={props.setWhat}
+                    setObj={props.setObj} setTitle={props.setTitle}
                 />)}
             </Carousel>
         
