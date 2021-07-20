@@ -17,11 +17,13 @@ const Slider = (props) => {
         {width: 1500, itemsToShow: 4},
     ]
 
+    // const arr = props.arr;
 
     return (
         <div className="App">
             <Carousel breakPoints={breakPoints} >
-                {(props.bool?New_Store:Top_Store).map((val) => <Slide 
+                {
+                    (props.arr).map((val) => <Slide 
                     key={val.id}
                     id={val.id}
                     img={val.img}

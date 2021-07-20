@@ -8,7 +8,7 @@ const Food_store = [
         rating:'5',
         prize:'$99' ,
         title:'food',
-        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. '
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.  '
     },
     {
         id:uuid(),
@@ -17,7 +17,7 @@ const Food_store = [
         rating:'4',
         prize:'$99' ,
         title:'food',
-        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.sit amet consectetur adipisicing elit. Deleniti, cum.sit amet consectetur adipisicing elit. Deleniti, cum.'
+        desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.'
     },
     {
         id:uuid(),

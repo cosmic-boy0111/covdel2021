@@ -10,6 +10,10 @@ import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import ArrowDropUpRoundedIcon from '@material-ui/icons/ArrowDropUpRounded';
 import FavoriteRoundedIcon from '@material-ui/icons/FavoriteRounded';
 import GradeRoundedIcon from '@material-ui/icons/GradeRounded';
+import Slider from './Slider'
+import Food_store from './store/Food_store'
+import Fashion_store from './store/Fashion_store'
+import Fruit_store from './store/Fruit_store'
 
 
 // import Food from './subPages/Food'
@@ -77,29 +81,29 @@ const MoreInfo = (props) => {
         if(title==='food'){
             return (<>
             <h3>Food Products</h3>
-            <Food setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/>
+            <div className="new_product_div"><Slider arr={Food_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>
             )
         }else if(title==='fruit'){
             return (<>
             <h3>Fruit Products</h3>
-            <Fruit setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/>
+            <div className="new_product_div"><Slider arr={Fruit_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>)
         }else if(title==='fashion'){
             return ( <>
             <h3>Fashion Products</h3>
-            <Fashion setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/>
+            <div className="new_product_div"><Slider arr={Fashion_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>)
         }
     }
 
     return (
         <>
-        <div className='more_info'>
+        <div id='more_info2' className='more_info'>
             <img src={props.obj.img} alt="" className='more_img'/>
             <div className="more_info_about">
-                <h2>{props.obj.name}</h2>
-                <p className='inf'><GradeRoundedIcon style={{color:'gold'}}/>{props.obj.rating} {props.obj.prize}</p>
+                <h3>{props.obj.name}</h3>
+                {/* <p className='inf'><GradeRoundedIcon style={{color:'gold'}}/>{props.obj.rating} {props.obj.prize}</p> */}
                 <p className='inf'>{props.obj.desc}</p>
                 <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
