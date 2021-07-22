@@ -9,7 +9,7 @@ import {
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from "react-router-dom"; 
 
 const App = () => {
   return (
@@ -23,10 +23,6 @@ const App = () => {
           </Route>
         </Switch>
     </Router>
-    // {/* <div>
-    //   {/* <LoginPage /> */}
-    //   <Buyer />
-    // </div> */}
   )
 }
 

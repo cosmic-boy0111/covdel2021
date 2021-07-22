@@ -11,26 +11,74 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const SideBar = ({setWhat}) => {
+const SideBar = ({setWhat,dis,setDis}) => {
 
 
 return(
     <div className="side_bar">
-                    <div onClick={()=>setWhat('home')}><HomeRoundedIcon />
+                    <div onClick={()=>{
+                         setDis(true)
+                         setWhat('home')
+
+                         }}><HomeRoundedIcon />
+                         
+                         <span style={{display:dis?'inline':'none'}}>
+
                          home <KeyboardArrowRightRoundedIcon/> 
+                         </span>
+                         
+
                     </div>
-                    <div onClick={()=>setWhat('food')}><FastfoodRoundedIcon />
+                    <div onClick={()=>{setDis(true)
+                    setWhat('food')}}><FastfoodRoundedIcon />
+                         
+                    <span style={{display:dis?'inline':'none'}}>
                          food <KeyboardArrowRightRoundedIcon/> 
+                         </span> 
+                              
                     </div>
-                    <div onClick={()=>setWhat('fruit')}><KitchenRoundedIcon/> 
+                    <div onClick={()=>{setDis(true)
+                    setWhat('fruit')}}><KitchenRoundedIcon/> 
+                         
+
+                         
+                    <span style={{display:dis?'inline':'none'}}>
                          fruit and veg <KeyboardArrowRightRoundedIcon/>
+                         </span>
+                              
                     </div>
-                    <div onClick={()=>setWhat('fashion')}><DevicesOtherRoundedIcon />
-                            fashion <KeyboardArrowRightRoundedIcon/>
+                    <div onClick={()=>{setDis(true)
+                    setWhat('fashion')}}><DevicesOtherRoundedIcon />
+                         
+
+                         
+                    <span style={{display:dis?'inline':'none'}}>
+                         fashion <KeyboardArrowRightRoundedIcon/>
+                         </span>
+                              
                     </div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> men <KeyboardArrowRightRoundedIcon/></div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><FaceRoundedIcon /> women <KeyboardArrowRightRoundedIcon/></div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><EmojiEmotionsRoundedIcon /> kids <KeyboardArrowRightRoundedIcon/></div>
+                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> 
+
+                    
+                    <span style={{display:dis?'inline':'none'}}>
+                    men <KeyboardArrowRightRoundedIcon/>
+                    </span>
+                         
+                    </div>
+                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><FaceRoundedIcon /> 
+
+                    
+                    <span style={{display:dis?'inline':'none'}}>
+                    women <KeyboardArrowRightRoundedIcon/>
+                    </span>
+                         
+                    </div>
+                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><EmojiEmotionsRoundedIcon /> 
+                     
+                    <span style={{display:dis?'inline':'none'}}>
+                     kids <KeyboardArrowRightRoundedIcon/>
+                    </span>
+                    </div>
             </div>
 )
 }

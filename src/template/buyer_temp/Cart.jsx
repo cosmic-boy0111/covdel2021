@@ -1,163 +1,133 @@
 import React,{useState} from 'react'
-import '../../static/css/Cart.css'
+import '../../static/css/Cart_Page.css'
 
-import FastfoodRoundedIcon from '@material-ui/icons/FastfoodRounded';
-import KitchenRoundedIcon from '@material-ui/icons/KitchenRounded';
-import DevicesOtherRoundedIcon from '@material-ui/icons/DevicesOtherRounded';
-import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
-import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
-import EmojiEmotionsRoundedIcon from '@material-ui/icons/EmojiEmotionsRounded';
-import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
-import Tooltip from '@material-ui/core/Tooltip';
-import { LinkedCamera } from '@material-ui/icons';
-import Slide from './Slide';
-import Button from '@material-ui/core/Button';
-import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
 import Carousel from 'react-elastic-carousel';
-import GradeRoundedIcon from '@material-ui/icons/GradeRounded';
+import Button from '@material-ui/core/Button';
+import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
+import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const Cart = (props) => {
-    
-    const SideBar  = () => {
-        return(
-
-            <div className="side_bar" style={{top:'0px'}}>
-                            <Tooltip title='home' placement="left">
-
-                            <span onClick={()=>{
-                                props.setWhat('home')
-                                props.setShow3(true)
-                            }}><HomeRoundedIcon /></span>
-                            </Tooltip>
-                            <Tooltip title='food' placement="left">
-
-                            <span onClick={()=>{
-                                props.setWhat('food')
-                                props.setShow3(true)
-                            }}><FastfoodRoundedIcon /></span>
-                            </Tooltip>
-                            <Tooltip title='fruit and veg' placement="left">
-
-                            <span onClick={()=>{
-                                props.setShow3(true)
-                                props.setWhat('fruit')
-                            }}><KitchenRoundedIcon/></span>
-                            </Tooltip>
-                            <Tooltip title='fashion' placement="left">
-
-                            <span onClick={()=>{
-                                props.setWhat('fashion')
-                                props.setShow3(true)
-                            }}><DevicesOtherRoundedIcon /></span>
-                            </Tooltip>
-                            <Tooltip title='men' placement="left">
-
-                            <span onClick={()=>props.toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> </span>
-                            </Tooltip>
-                            <Tooltip title='women' placement="left">
-
-                            <span onClick={()=>props.toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><FaceRoundedIcon /> </span>
-                            </Tooltip>
-                            <Tooltip title='kids' placement="left">
-
-                            <span onClick={()=>props.toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><EmojiEmotionsRoundedIcon /></span>
-                            </Tooltip>
-                            
-                    </div>
-        )
-    }
 
     const breakPoints = [
-        {width: 1, itemsToShow: 2},
-        {width: 250, itemsToShow: 3},
+        {width: 1, itemsToShow: 1},
+        {width: 250, itemsToShow: 2},
         {width: 500, itemsToShow: 4},
-        {width: 1046, itemsToShow: 4},
+        {width: 1500, itemsToShow: 4},
     ]
 
-    
-    
-    const show2 = true;
+    const [show2, setShow2] = useState(true)
+    const [total, setTotal] = useState(
+        ()=>{
+            var sum = 0;
+            props.cart.forEach(e => {
+                sum = sum + parseInt(e.prize);
+            })
 
-    // function funAdd(val){
-    //   props.setCart((pre)=>{
-    //     var bool = true;
-    //     const p = [];
-    //     pre.forEach(e => {
-    //       if(e.id !== val.id){
-    //         p.push(e);
-    //       }else{
-    //         bool = false;
-    //         // return props.toast('Already Added in Cart',{type:'error',position:'bottom-left'})
-    //       }
-    //     });
+            return sum;
+        }
+    )
+
+    function AddToCart(val){
+        setShow2(false)
+      props.setCart((pre)=>{
+        var bool = true;
+        const p = [];
+        pre.forEach(e => {
+          if(e.id !== val.id){
+            p.push(e);
+          }else{
+            bool = false;
+            // return props.toast('Already Added in Cart',{type:'error',position:'bottom-left'})
+          }
+        });
+        if(bool){
+            setTotal(total+parseInt(val.prize))
+        }
+
+        bool?props.toast('Added in Cart',{
+          type:'info',position:'bottom-left',autoClose: 2000})
+          :props.toast('Already Added in Cart',{
+            type:'error',position:'bottom-left',autoClose: 2000})
         
-    //     localStorage.setItem('cart',JSON.stringify([...p,val]))
-    //     localStorage.setItem('like',JSON.parse(localStorage.getItem('like')).filter((e)=>{
-    //         return e.id!==val.id;
-    //     }))
-    //     props.setLike(JSON.parse(localStorage.getItem('like')));
+        var t = JSON.parse(localStorage.getItem('like'));
+        props.setLike(t.filter((e)=>{
+            return e.id!==val.id;
+        }))
 
+        localStorage.setItem('like',JSON.stringify(t.filter((e)=>{
+            return e.id!==val.id;
+        })));
+        
 
-    //     bool?props.toast('Added in Cart',{
-    //       type:'info',position:'bottom-left',autoClose: 2000})
-    //       :props.toast('Already Added in Cart',{
-    //         type:'error',position:'bottom-left',autoClose: 2000})
+        localStorage.setItem('cart',JSON.stringify([...p,val]))
 
-    //     return [...p,val]
-    //   })
-    // }
+        return [...p,val]
+      })
+    }
 
+    function Delete(Cval) {
+        props.setCart((pre)=>{
 
+            localStorage.setItem('cart',JSON.stringify(
+                JSON.parse(localStorage.getItem('cart')).filter((val)=>{
+                    return val.id!==Cval.id;
+                })
+            ))
 
+            setTotal(total-parseInt(Cval.prize))
+
+            props.toast('Remove from Cart',{
+          type:'dark',position:'bottom-left',autoClose: 2000})
+
+            return pre.filter((val)=>{
+                return val.id!==Cval.id;
+            })
+        })
+    }
+
+    
     return (
-        <div className='cart_main_div'>
-            {SideBar()}
-            <div className='cart_details'>
-            <div style={{display:props.like.length===0?'none':'block'}}>
-
-            <Carousel breakPoints={breakPoints} className='slider' showThumbs={false} showIndicators={false}> 
-                {
-                    
-                    props.like===null || props.like.length === 0?( <div></div> ):props.like.map((val) => {
-                        return(
-                            <div className="like_card">
-
-                                <img src={val.img} alt="" />
-                                <div className="details">
-                                    <h6>{val.name}</h6>
-                                    <p>{val.prize} </p>
-                                        <Tooltip title="Add">
-                                            <Button color="primary" >
-                                            <AddShoppingCartRoundedIcon style={{color: show2?'#3f51b5':'#2cbc63' }}/>
-                                            </Button>
-                                        </Tooltip>
-                                    
+        <>
+            <div className='wish_list' style={{display:props.like.length===0?'none':'block'}}>
+                <Carousel breakPoints={breakPoints} >
+                    {
+                        props.like.length===0? <div>hello </div> :props.like.map((val)=>{
+                            return (
+                                <div className="cart_card_main">
+                                    <div className="cart_card_body">
+                                        <img src={val.img} alt="" />
+                                        <div className="cart_card_details">
+                                            <p>{val.name}</p>
+                                            <p>${val.prize}</p>
+                                        </div>
+                                        <IconButton aria-label="delete" onClick={()=>AddToCart(val)}>
+                                            <AddRoundedIcon style={{color:'#3f51b5'}}/>
+                                        </IconButton>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
-
-            </Carousel>
+                            )
+                        })
+                        
+                    }
+                </Carousel>
             </div>
-                <div className="cart" style={{height:props.like.length === 0?'80vh':'55vh'}}>
-                    <h4 style={{textAlign:'center'}}>Cart List</h4>
-                    <div className='cart_list'>
+                <div className='cart_card_list'>
+                    <h3 style={{textAlign:'center'}}>Cart List</h3>
+                    <div className='cart_container' style={{height:props.like.length===0?'80vh':'60vh'}}>
                         {
-                            props.cart===null || props.cart.length === 0?( <div>Select Items</div> ):props.cart.map((val)=>{
+                            props.cart.length===0? <div style={{textAlign:'center'}}>Cart List is Empty!!! 😧</div> :props.cart.map((val)=>{
                                 return (
-                                    <div className="cart_main">
-                                        <div className="cart_body">
+                                    <div className="cart_card_main2">
+                                        <div className="cart_card_body2">
                                             <img src={val.img} alt="" />
-                                            <div className="det">
+                                            <div className="cart_card_details">
                                                 <p>{val.name}</p>
-                                                <p>{val.prize}</p>
+                                                <p>${val.prize}</p>
                                             </div>
-                                            <IconButton aria-label="delete" className='del_btn'>
+                                            <IconButton aria-label="delete" className='del_btn' onClick={()=>Delete(val)}>
                                                 <DeleteIcon />
                                             </IconButton>
                                         </div>
@@ -166,15 +136,18 @@ const Cart = (props) => {
                             })
                         }
                     </div>
-                    <div className="pro_btn">
-                    <Button variant="outlined" color="primary" className="pro_btn"> 
-                        Primary
-                    </Button>
+                    <div className="cart_card_btn">
+                        <div>
+                            Total: ${total}
+                        </div>
+                        <Button variant="contained" color="primary">
+                            proceed
+                        </Button>
                     </div>
                 </div>
-            </div>
-        </div>
+        </>
     )
 }
 
 export default Cart
+

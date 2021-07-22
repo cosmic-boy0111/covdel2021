@@ -23,6 +23,7 @@ const MoreInfo = (props) => {
 
     const [show, setShow] = useState(true)
     const [show2, setShow2] = useState(true)
+    const [op,setOp] = useState(true)
 
     const funLike = () =>{
       setShow(false)
@@ -47,6 +48,8 @@ const MoreInfo = (props) => {
               position:'bottom-left',
               autoClose: 2000
             })
+
+          localStorage.setItem('like',JSON.stringify([...p,props.obj]))
         
           return [...p,props.obj]
         
@@ -67,10 +70,14 @@ const MoreInfo = (props) => {
           }
         });
 
+
+
         bool?props.toast('Added in Cart',{
           type:'info',position:'bottom-left',autoClose: 2000})
           :props.toast('Already Added in Cart',{
             type:'error',position:'bottom-left',autoClose: 2000})
+
+        localStorage.setItem('cart',JSON.stringify([...p,props.obj]))
 
         return [...p,props.obj]
       })
@@ -100,14 +107,14 @@ const MoreInfo = (props) => {
     return (
         <>
         <div id='more_info2' className='more_info'>
-            <img src={props.obj.img} alt="" className='more_img'/>
+            <img src={props.obj.img} alt="" className='more_img' onMouseOver={()=>setOp(false)} onMouseOut={()=>setOp(true)}/>
             <div className="more_info_about">
                 <h3>{props.obj.name}</h3>
                 {/* <p className='inf'><GradeRoundedIcon style={{color:'gold'}}/>{props.obj.rating} {props.obj.prize}</p> */}
                 <p className='inf'>{props.obj.desc}</p>
                 <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
-            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f50057' }}/>
+            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
             </Button>
           </Tooltip>
             <Tooltip title="Add">
@@ -118,7 +125,7 @@ const MoreInfo = (props) => {
             </Tooltip>
             </div>
         </div>
-        <div>
+        <div style={{opacity:op?'1':'0.5'}}>
             {similar(props.title)}
         </div>
 

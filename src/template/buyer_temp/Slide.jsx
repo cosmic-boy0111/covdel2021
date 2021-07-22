@@ -37,6 +37,18 @@ const Slide = (props) => {
               position:'bottom-left',
               autoClose: 2000
             })
+
+          localStorage.setItem('like',JSON.stringify(
+            [...p,{
+              id: props.id,
+              img: props.img,
+              name: props.name,
+              rating: props.rating,
+              prize: props.prize,
+              title:props.title,
+              desc: props.desc
+            }]
+          ))
         
           return [...p,{
             id: props.id,
@@ -69,6 +81,18 @@ const Slide = (props) => {
           type:'info',position:'bottom-left',autoClose: 2000})
           :props.toast('Already Added in Cart',{
             type:'error',position:'bottom-left',autoClose: 2000})
+
+            localStorage.setItem('cart',JSON.stringify(
+              [...p,{
+                id: props.id,
+                img: props.img,
+                name: props.name,
+                rating: props.rating,
+                prize: props.prize,
+                title:props.title,
+                desc: props.desc
+              }]
+            ))
 
         return [...p,{
           id: props.id,
@@ -107,10 +131,10 @@ const Slide = (props) => {
       </Tooltip>
         <div className="card__info" >
           <span className="card__category">{props.name}</span>
-          <h5 className="card__title"><GradeRoundedIcon style={{color:'gold'}}/>{props.rating} {props.prize}</h5>
+          <h5 className="card__title"><GradeRoundedIcon style={{color:'gold'}}/>{props.rating} ${props.prize}</h5>
           <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
-            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f50057' }}/>
+            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
             </Button>
           </Tooltip>
             <Tooltip title="Add">

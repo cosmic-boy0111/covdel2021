@@ -19,6 +19,7 @@ import Cart from './buyer_temp/Cart';
 
 
 
+
 const Buyer = () => {
 
 
@@ -26,13 +27,18 @@ const Buyer = () => {
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(true)
     const [show3, setShow3] = useState(true)
+    const [dis, setDis] = useState(true)
     const [what, setWhat] = useState('home')
     const [obj, setObj] = useState({})
     const [title, setTitle] = useState('')
 
 
-    const [like, setLike] = useState([])
-    const [cart, setCart] = useState([])
+    const [like, setLike] = useState(
+        JSON.parse(localStorage.getItem('like'))===null? [] : JSON.parse(localStorage.getItem('like'))
+    )
+    const [cart, setCart] = useState(
+        JSON.parse(localStorage.getItem('cart'))===null? [] : JSON.parse(localStorage.getItem('cart'))
+    )
 
     const useMe = () => {
         if(what==='home'){
@@ -69,7 +75,10 @@ const Buyer = () => {
                 </>
             )
         }else if(what==='more'){
+            
             return <MoreInfo obj={obj} title={title} setLike={setLike} setCart={setCart} toast={toast} setWhat={setWhat} setObj={setObj} setTitle={setTitle}/>
+        }else if(what==='cart'){
+            return <Cart like={like} cart={cart} setLike={setLike} setCart={setCart} toast={toast}/>
         }
     }
 
@@ -78,27 +87,29 @@ const Buyer = () => {
     
     return (
         <>
+
         <NavBar meth1={setShow1} meth2={setShow2} />
         <div className="buy_main" style={{display : show3 ? 'block' : 'none'}}>
             <div style={{display: show1 ? 'block':'none'}}>
             <Login meth1={setShow1} meth2={setShow2} />
             </div>
             <div style={{display: show2 ? 'block':'none'}} className='product_container'>
-                <SideBar setWhat={setWhat}/>
-                        <div className='product'>
-                            {useMe()}
-                        </div>
-            </div>
-            <div className="cart_div" style={{display : show3 ? 'none' : 'block'}}>
-            <Cart setWhat={setWhat} setShow3={setShow3} toast={toast} setLike={setLike} setCart={setCart} like={like} cart={cart}/>
-        </div>
-                <div className='cart_btn' onClick={()=>setShow3(false)}>
+                <SideBar setWhat={setWhat} dis={dis} setDis={setDis}/>
+                <div className='cart_btn' onClick={()=>{
+                    setWhat('cart')
+                    setDis(false)
+                }}>
                         <Tooltip title="Go to CartList"> 
                     <Fab color="secondary" aria-label="add" >
                         <ShoppingCartRoundedIcon />
                     </Fab>
                     </Tooltip>
                 </div>
+                        <div className='product' style={{width:dis?'80%':'90%',height:dis?'100%':'100vh'}}>
+                            {useMe()}
+                        </div>
+            </div>
+            
             <ToastContainer style={{width:'28%'}}/>
         </div>
         </>
