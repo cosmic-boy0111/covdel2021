@@ -15,6 +15,7 @@ import Product from './buyer_temp/subPages/Product';
 import SideBar from './buyer_temp/subPages/SideBar';
 import MoreInfo from './buyer_temp/MoreInfo';
 import Fruit from './buyer_temp/subPages/Fruit';
+import Cart from './buyer_temp/Cart';
 
 
 
@@ -24,6 +25,7 @@ const Buyer = () => {
 
     const [show1, setShow1] = useState(false)
     const [show2, setShow2] = useState(true)
+    const [show3, setShow3] = useState(true)
     const [what, setWhat] = useState('home')
     const [obj, setObj] = useState({})
     const [title, setTitle] = useState('')
@@ -77,7 +79,7 @@ const Buyer = () => {
     return (
         <>
         <NavBar meth1={setShow1} meth2={setShow2} />
-        <div className="buy_main">
+        <div className="buy_main" style={{display : show3 ? 'block' : 'none'}}>
             <div style={{display: show1 ? 'block':'none'}}>
             <Login meth1={setShow1} meth2={setShow2} />
             </div>
@@ -86,14 +88,17 @@ const Buyer = () => {
                         <div className='product'>
                             {useMe()}
                         </div>
-                <div className='cart_btn'>
+            </div>
+            <div className="cart_div" style={{display : show3 ? 'none' : 'block'}}>
+            <Cart setWhat={setWhat} setShow3={setShow3} toast={toast} setLike={setLike} setCart={setCart} like={like} cart={cart}/>
+        </div>
+                <div className='cart_btn' onClick={()=>setShow3(false)}>
                         <Tooltip title="Go to CartList"> 
                     <Fab color="secondary" aria-label="add" >
                         <ShoppingCartRoundedIcon />
                     </Fab>
                     </Tooltip>
                 </div>
-            </div>
             <ToastContainer style={{width:'28%'}}/>
         </div>
         </>

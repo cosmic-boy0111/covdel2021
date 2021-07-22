@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import SideBar from './subPages/SideBar'
 import '../../static/css/Cart.css'
 
 import FastfoodRoundedIcon from '@material-ui/icons/FastfoodRounded';
