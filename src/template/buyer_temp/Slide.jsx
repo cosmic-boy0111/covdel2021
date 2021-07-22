@@ -100,7 +100,7 @@ const Slide = (props) => {
     return (
       <>
         <div className="cards">       
-      <div className="card" >
+      <div className="card1" >
       <Tooltip title='click for more info' placement="top">
 
       <img src={props.img} alt="myPic" className="card__img" onClick={()=>setAll()}/>
