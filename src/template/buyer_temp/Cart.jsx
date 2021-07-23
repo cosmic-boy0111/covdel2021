@@ -7,6 +7,7 @@ import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
 
 const Cart = (props) => {
@@ -30,6 +31,7 @@ const Cart = (props) => {
         }
     )
 
+
     function AddToCart(val){
         setShow2(false)
       props.setCart((pre)=>{
@@ -43,6 +45,7 @@ const Cart = (props) => {
             // return props.toast('Already Added in Cart',{type:'error',position:'bottom-left'})
           }
         });
+        
         if(bool){
             setTotal(total+parseInt(val.prize))
         }
@@ -57,14 +60,16 @@ const Cart = (props) => {
             return e.id!==val.id;
         }))
 
+
         localStorage.setItem('like',JSON.stringify(t.filter((e)=>{
             return e.id!==val.id;
         })));
+
         
 
         localStorage.setItem('cart',JSON.stringify([...p,val]))
 
-        return [...p,val]
+        return [val,...p]
       })
     }
 
@@ -87,6 +92,7 @@ const Cart = (props) => {
             })
         })
     }
+
 
     
     return (
@@ -116,7 +122,7 @@ const Cart = (props) => {
             </div>
                 <div className='cart_card_list'>
                     <h3 style={{textAlign:'center'}}>Cart List</h3>
-                    <div className='cart_container' style={{height:props.like.length===0?'80vh':'60vh'}}>
+                    <div className='cart_container' style={{height:props.like.length===0?'70vh':'48vh'}}>
                         {
                             props.cart.length===0? <div style={{textAlign:'center'}}>Cart List is Empty!!! 😧</div> :props.cart.map((val)=>{
                                 return (

@@ -105,7 +105,7 @@ const Buyer = () => {
                     </Fab>
                     </Tooltip>
                 </div>
-                        <div className='product' style={{width:dis?'80%':'90%',height:dis?'100%':'100vh'}}>
+                        <div className='product' style={{width:dis?'80%':'90%',height:dis?'100%':'100%'}}>
                             {useMe()}
                         </div>
             </div>

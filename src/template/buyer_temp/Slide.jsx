@@ -8,6 +8,7 @@ import GradeRoundedIcon from '@material-ui/icons/GradeRounded';
 import Tooltip from '@material-ui/core/Tooltip';
 import EjectRoundedIcon from '@material-ui/icons/EjectRounded';
 import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
 const Slide = (props) => {
 
@@ -134,7 +135,7 @@ const Slide = (props) => {
           <h5 className="card__title"><GradeRoundedIcon style={{color:'gold'}}/>{props.rating} ${props.prize}</h5>
           <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
-            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
+            <FavoriteBorderRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
             </Button>
           </Tooltip>
             <Tooltip title="Add">

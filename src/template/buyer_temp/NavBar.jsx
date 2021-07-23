@@ -3,6 +3,8 @@ import logo from '../../static/images/shopping-online-removebg-preview.png'
 import '../../static/css/NavBar.css'
 import Button from '@material-ui/core/Button';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
+import DropDown from './subPages/DropDown';
+
 // import Alert from '@material-ui/lab/Alert';
 
 // import Selectme from './Selectme';
@@ -48,12 +50,13 @@ const NavBar = ({meth1,meth2}) => {
         </select>
         </div> */}
         <div className='nav_btn_group'>
-          <Button variant="contained" color="primary"  className='nav_btn1' onClick={func1}>
+          {/* <Button variant="contained" color="primary"  className='nav_btn1' onClick={func1}>
             Login
           </Button>
           <Button variant="contained" color="secondary" className='nav_btn1' onClick={check2}>
             Logout
-          </Button>
+          </Button> */}
+          <DropDown meth1={meth1} meth2={meth2}/>
         </div>
 
       </div>

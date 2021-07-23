@@ -1,0 +1,8 @@
+
+font-family: 'Rubik', sans-serif
+background: linear-gradient(to bottom, (first color)#33ccff 0%, (second color)#cc99ff 100%);
+like and add color before : #3f51b5
+like color after : #f48fb1
+add color after : #2cbc63
+cart btn color :  #f48fb1
+proceed btn color : #3f51b5

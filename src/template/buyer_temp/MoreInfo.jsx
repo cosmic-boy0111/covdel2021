@@ -14,7 +14,7 @@ import Slider from './Slider'
 import Food_store from './store/Food_store'
 import Fashion_store from './store/Fashion_store'
 import Fruit_store from './store/Fruit_store'
-
+import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
 // import Food from './subPages/Food'
 
@@ -114,7 +114,7 @@ const MoreInfo = (props) => {
                 <p className='inf'>{props.obj.desc}</p>
                 <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
-            <FavoriteRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
+            <FavoriteBorderRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
             </Button>
           </Tooltip>
             <Tooltip title="Add">

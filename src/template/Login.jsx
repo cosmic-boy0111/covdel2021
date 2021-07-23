@@ -7,11 +7,13 @@ import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 const Login = ({meth1,meth2}) => {
 
     const [email, setEmail] = useState('')
+    const [user, setUser] = useState('')
     const [pass, setPass] = useState('')
 
     const check = () =>{
-        if(email!=='' && pass!==''){
+        if(email!=='' && pass!=='' && user!==''){
             localStorage.setItem('email',JSON.stringify(email));
+            localStorage.setItem('user',JSON.stringify(user));
             meth1(false)
             meth2(true)
         }
@@ -31,6 +33,11 @@ const Login = ({meth1,meth2}) => {
                     <label for="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e)=>setEmail(e.target.value)} value={email}/>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className="mb-3">
+                    <label for="exampleInputEmail1" className="form-label">Enter UserName</label>
+                    <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" maxLength='14' onChange={(e)=>setUser(e.target.value)} value={user}/>
+                    <div id="emailHelp" className="form-text">Enter UserName up to 14 character</div>
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label">Password</label>
