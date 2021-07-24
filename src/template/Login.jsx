@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import '../static/css/Login.css'
 import Button from '@material-ui/core/Button';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
+import IconButton from '@material-ui/core/IconButton';
+
 
 
 const Login = ({meth1,meth2}) => {
@@ -29,6 +31,7 @@ const Login = ({meth1,meth2}) => {
     return (
         <div className='login_card'>
             {/* <form onSubmit={check}> */}
+            
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e)=>setEmail(e.target.value)} value={email}/>
@@ -44,9 +47,12 @@ const Login = ({meth1,meth2}) => {
                     <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e)=>setPass(e.target.value)} value={pass}/>
                 </div>
                 <Button type="submit" variant="contained" color="primary" onClick={check} >Submit</Button>
-            <Button variant="outlined" onClick={closed} style={{marginLeft:'1rem'}}>
+            {/* <Button variant="outlined" onClick={closed} style={{marginLeft:'1rem'}}>
                  <CloseRoundedIcon />
-            </Button>
+            </Button> */}
+            <IconButton aria-label="delete" onClick={closed} className='close'>
+                <CloseRoundedIcon />
+            </IconButton>
             {/* </form> */}
         </div>
     )

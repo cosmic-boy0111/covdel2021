@@ -10,7 +10,7 @@ import DropDown from './subPages/DropDown';
 // import Selectme from './Selectme';
 
 
-const NavBar = ({meth1,meth2}) => {
+const NavBar = ({meth1,meth2,setDis2}) => {
 
   const func1 = () => {
     if(JSON.parse(localStorage.getItem('email'))===null){
@@ -56,7 +56,7 @@ const NavBar = ({meth1,meth2}) => {
           <Button variant="contained" color="secondary" className='nav_btn1' onClick={check2}>
             Logout
           </Button> */}
-          <DropDown meth1={meth1} meth2={meth2}/>
+          <DropDown meth1={meth1} meth2={meth2} setDis2={setDis2}/>
         </div>
 
       </div>

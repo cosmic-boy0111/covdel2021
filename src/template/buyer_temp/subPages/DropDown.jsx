@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DropDown = ({meth1,meth2})=> {
+const DropDown = ({meth1,meth2,setDis2})=> {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -57,6 +57,7 @@ const DropDown = ({meth1,meth2})=> {
 
 
   const func1 = (event) => {
+    setDis2('login')
     if(JSON.parse(localStorage.getItem('email'))===null){
       meth1(true)
       meth2(false)
@@ -75,11 +76,26 @@ const DropDown = ({meth1,meth2})=> {
       if(window.confirm('do you really wants to log out')===true){
         localStorage.removeItem('email');
         localStorage.removeItem('user');
+        localStorage.removeItem('pro_img');
       }
       // console.log(t);
     }
-
+    
     handleClose(event);
+    meth1(false)
+    meth2(true)
+  }
+
+  const func2 = (event) => {
+    if(JSON.parse(localStorage.getItem('email'))!==null){
+    setDis2('profile')
+    console.log(JSON.parse(localStorage.getItem('pro_img')));
+    meth1(true)
+    meth2(false)
+  }else{
+    alert('kindly login');
+  }
+  handleClose(event)
   }
 
 
@@ -115,7 +131,7 @@ const DropDown = ({meth1,meth2})=> {
                     }
                     </MenuItem>
                     <hr className='nav_hr'/>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={func2}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>Your orders</MenuItem>
                     <hr className='nav_hr'/>
                     <MenuItem onClick={handleClose}>settings</MenuItem>

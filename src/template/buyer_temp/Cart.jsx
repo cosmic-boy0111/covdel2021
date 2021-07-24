@@ -9,7 +9,6 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
 
-
 const Cart = (props) => {
 
     const breakPoints = [

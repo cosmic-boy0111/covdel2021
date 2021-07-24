@@ -100,3 +100,7 @@
 .del_btn:hover{
     color: #f48fb1;
 }
+
+.cart_card_details{
+    line-height: 2px;
+}
