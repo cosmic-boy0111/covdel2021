@@ -7,7 +7,7 @@ import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
+
 
 const Cart = (props) => {
 
@@ -19,11 +19,12 @@ const Cart = (props) => {
     ]
 
     const [show2, setShow2] = useState(true)
+    
     const [total, setTotal] = useState(
         ()=>{
             var sum = 0;
             props.cart.forEach(e => {
-                sum = sum + parseInt(e.prize);
+                sum = sum + (parseInt(e.prize)*parseInt(e.qnt));
             })
 
             return sum;
@@ -49,6 +50,8 @@ const Cart = (props) => {
             setTotal(total+parseInt(val.prize))
         }
 
+        
+
         bool?props.toast('Added in Cart',{
           type:'info',position:'bottom-left',autoClose: 2000})
           :props.toast('Already Added in Cart',{
@@ -68,7 +71,7 @@ const Cart = (props) => {
 
         localStorage.setItem('cart',JSON.stringify([...p,val]))
 
-        return [val,...p]
+        return [...p,val]
       })
     }
 
@@ -81,7 +84,7 @@ const Cart = (props) => {
                 })
             ))
 
-            setTotal(total-parseInt(Cval.prize))
+            setTotal(total-(parseInt(Cval.prize)*parseInt(Cval.qnt)));
 
             props.toast('Remove from Cart',{
           type:'dark',position:'bottom-left',autoClose: 2000})
@@ -90,6 +93,33 @@ const Cart = (props) => {
                 return val.id!==Cval.id;
             })
         })
+    }
+
+    const func = (val,e)=>{
+
+        if(e.target.value <= 0){
+            return alert('please enter valid quantity');
+        }
+
+        val.qnt = e.target.value;
+        console.log(val.qnt);
+        var t = JSON.parse(localStorage.getItem('cart'))
+        t.forEach(item => {
+            if(item.id===val.id){
+                item.qnt = e.target.value;
+            }
+        })
+
+        props.setCart(t);
+
+        localStorage.setItem('cart',JSON.stringify(t));
+        var tt = 0
+        t.forEach(item => {
+            tt += (item.prize*item.qnt)
+        })
+
+        setTotal(tt);
+
     }
 
 
@@ -125,18 +155,23 @@ const Cart = (props) => {
                         {
                             props.cart.length===0? <div style={{textAlign:'center'}}>Cart List is Empty!!! 😧</div> :props.cart.map((val)=>{
                                 return (
+                                    <>
+       
                                     <div className="cart_card_main2">
                                         <div className="cart_card_body2">
                                             <img src={val.img} alt="" />
                                             <div className="cart_card_details">
                                                 <p>{val.name}</p>
                                                 <p>${val.prize}</p>
+                                                <input type="number" min='1' step='1' onChange={(e) => func(val,e)} placeholder={val.qnt}/>
                                             </div>
                                             <IconButton aria-label="delete" className='del_btn' onClick={()=>Delete(val)}>
                                                 <DeleteIcon />
                                             </IconButton>
                                         </div>
                                     </div>
+
+                                    </>
                                 )
                             })
                         }

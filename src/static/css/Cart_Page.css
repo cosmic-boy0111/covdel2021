@@ -99,8 +99,17 @@
 
 .del_btn:hover{
     color: #f48fb1;
+    /* color: rgba(168, 170, 172, 0.781); */
 }
 
 .cart_card_details{
     line-height: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart_card_details input{
+    width: 3rem;
 }

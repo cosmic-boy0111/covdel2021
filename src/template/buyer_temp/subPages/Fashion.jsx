@@ -11,6 +11,7 @@ const Fashion = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
                     name={val.name}
                     rating={val.rating}
                     prize={val.prize}
+                    qnt={val.qnt}
                     title={val.title}
                     desc={val.desc}
                     setLike={setLike} setCart={setCart}

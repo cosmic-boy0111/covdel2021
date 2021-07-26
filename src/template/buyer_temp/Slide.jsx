@@ -29,6 +29,17 @@ const Slide = (props) => {
           }
         });
 
+        var bool2 = true;
+
+        var c = JSON.parse(localStorage.getItem('cart'));
+        c.forEach(e => {
+          if(e.id===props.id){
+            bool2 = false;
+          }
+        })
+
+        
+
         bool?props.toast('Added to whishList',{
               type:'success',
               position:'bottom-left',
@@ -39,27 +50,29 @@ const Slide = (props) => {
               autoClose: 2000
             })
 
-          localStorage.setItem('like',JSON.stringify(
+        bool2? localStorage.setItem('like',JSON.stringify(
             [...p,{
               id: props.id,
               img: props.img,
               name: props.name,
               rating: props.rating,
+              qnt:props.qnt,
               prize: props.prize,
               title:props.title,
               desc: props.desc
             }]
-          ))
+          )) : localStorage.setItem('like',JSON.stringify([...p]))
         
-          return [...p,{
+          return bool2?[...p,{
             id: props.id,
             img: props.img,
             name: props.name,
             rating: props.rating,
+            qnt:props.qnt,
             prize: props.prize,
             title:props.title,
             desc: props.desc
-          }]
+          }]:[...p]
         
       })
     }
@@ -78,6 +91,14 @@ const Slide = (props) => {
           }
         });
 
+        var t = JSON.parse(localStorage.getItem('like')).filter((e) => {
+          return e.id!==props.id;
+        })
+
+        localStorage.setItem('like',JSON.stringify(t));
+        props.setLike(t)
+
+
         bool?props.toast('Added in Cart',{
           type:'info',position:'bottom-left',autoClose: 2000})
           :props.toast('Already Added in Cart',{
@@ -89,6 +110,7 @@ const Slide = (props) => {
                 img: props.img,
                 name: props.name,
                 rating: props.rating,
+                qnt:props.qnt,
                 prize: props.prize,
                 title:props.title,
                 desc: props.desc
@@ -100,6 +122,7 @@ const Slide = (props) => {
           img: props.img,
           name: props.name,
           rating: props.rating,
+          qnt:props.qnt,
           prize: props.prize,
           title:props.title,
           desc: props.desc
@@ -114,6 +137,7 @@ const Slide = (props) => {
         img: props.img,
         name: props.name,
         rating: props.rating,
+        qnt:props.qnt,
         prize: props.prize,
         title:props.title,
         desc: props.desc

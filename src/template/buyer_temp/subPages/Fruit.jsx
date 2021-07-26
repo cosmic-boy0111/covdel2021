@@ -12,6 +12,7 @@ const Fruit = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
                     rating={val.rating}
                     prize={val.prize}
                     title={val.title}
+                    qnt={val.qnt}
                     desc={val.desc}
                     setLike={setLike} setCart={setCart}
                     toast={toast}

@@ -31,6 +31,7 @@ const Slider = (props) => {
                     rating={val.rating}
                     prize={val.prize}
                     title={val.title}
+                    qnt={val.qnt}
                     desc={val.desc}
                     setLike={props.setLike} setCart={props.setCart}
                     toast={props.toast}

@@ -15,6 +15,7 @@ const App = () => {
   return (
     <Router>
     <Switch>
+
           <Route exact path='/'>
             <LoginPage />
           </Route>

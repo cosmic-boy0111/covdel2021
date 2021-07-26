@@ -39,6 +39,15 @@ const MoreInfo = (props) => {
           }
         });
 
+        var bool2 = true;
+
+        var c = JSON.parse(localStorage.getItem('cart'));
+        c.forEach(e => {
+          if(e.id===props.id){
+            bool2 = false;
+          }
+        })
+
         bool?props.toast('Added to whishList',{
               type:'success',
               position:'bottom-left',
@@ -49,9 +58,9 @@ const MoreInfo = (props) => {
               autoClose: 2000
             })
 
-          localStorage.setItem('like',JSON.stringify([...p,props.obj]))
+        bool2? localStorage.setItem('like',JSON.stringify([...p,props.obj])): localStorage.setItem('like',JSON.stringify([...p]))
         
-          return [...p,props.obj]
+          return bool2?[...p,props.obj]:[...p]
         
       })
     }
@@ -66,11 +75,16 @@ const MoreInfo = (props) => {
             p.push(e);
           }else{
             bool = false;
-            // return props.toast('Already Added in Cart',{type:'error',position:'bottom-left'})
           }
         });
 
+        var t = JSON.parse(localStorage.getItem('like')).filter((e) => {
+          return e.id!==props.obj.id;
+        })
 
+        localStorage.setItem('like',JSON.stringify(t));
+
+        props.setLike(t)
 
         bool?props.toast('Added in Cart',{
           type:'info',position:'bottom-left',autoClose: 2000})
@@ -80,9 +94,9 @@ const MoreInfo = (props) => {
         localStorage.setItem('cart',JSON.stringify([...p,props.obj]))
 
         return [...p,props.obj]
+
       })
     }
-
 
     const similar = (title) =>{
         if(title==='food'){

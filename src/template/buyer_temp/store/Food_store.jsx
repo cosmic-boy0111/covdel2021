@@ -7,6 +7,7 @@ const Food_store = [
         name:'Biryani',
         rating:'5',
         prize:'99' ,
+        qnt:'1',
         title:'food',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.  '
     },
@@ -16,6 +17,7 @@ const Food_store = [
         name:'pizza',
         rating:'4',
         prize:'99' ,
+        qnt:'1',
         title:'food',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.'
     },
@@ -24,6 +26,7 @@ const Food_store = [
         img:'https://b.zmtcdn.com/data/homepage_dish_data/4/6e69685d22c94ffd42ccd7e70e246bd9.png',
         name:'burger',
         rating:'3',
+        qnt:'1',
         prize:'99' ,
         title:'food',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.'
@@ -33,6 +36,7 @@ const Food_store = [
         img:'https://b.zmtcdn.com/data/homepage_dish_data/4/90cc74d5256f614fc6658cf7942dadd9.png',
         name:'noodles',
         rating:'2',
+        qnt:'1',
         prize:'99' ,
         title:'food',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.'
@@ -42,6 +46,7 @@ const Food_store = [
         img:'https://b.zmtcdn.com/data/dish_images/770ba11e5159e6740d68f71f1b838a261612463246.png',
         name:'Cake',
         rating:'1',
+        qnt:'1',
         prize:'99' ,
         title:'food',
         desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, cum.'
