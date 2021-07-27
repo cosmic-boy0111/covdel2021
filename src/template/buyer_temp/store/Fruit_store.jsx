@@ -44,7 +44,7 @@ const Fruit_store = [
     {
         id:'15',
         img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQENXmw4q-Dv0OcaEmR7c2xJnZAF3f7vp2JCg&usqp=CAU',
-        name:'Cabbage',
+        name:'Carrot',
         rating:'1',
         prize:'99' ,
         qnt:'1',

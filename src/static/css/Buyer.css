@@ -92,10 +92,12 @@
         width: 100%;
         float: none;
         padding: 0 0.5rem;
+        position: relative;
+        top: 3rem;
     }
 
     .product_container{
-        margin: 1rem 1rem;
+        margin: 1rem .5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -133,6 +133,8 @@ const MoreInfo = (props) => {
                 <h3>{props.obj.name}</h3>
                 {/* <p className='inf'><GradeRoundedIcon style={{color:'gold'}}/>{props.obj.rating} {props.obj.prize}</p> */}
                 <p className='inf'>{props.obj.desc}</p>
+                <div>
+
                 <Tooltip title="Like">
           <Button color="primary" onClick={funLike}> 
             <FavoriteBorderRoundedIcon style={{color: show?'#3f51b5':'#f48fb1' }}/>
@@ -144,6 +146,7 @@ const MoreInfo = (props) => {
             <AddRoundedIcon style={{color:show2?'#3f51b5':'#2cbc63'}}/>
             </Button>
             </Tooltip>
+                </div>
             </div>
         </div>
         <div style={{opacity:op?'1':'0.5'}}>

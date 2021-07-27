@@ -57,10 +57,10 @@ const DropDown = ({meth1,meth2,setDis2})=> {
 
 
   const func1 = (event) => {
-    setDis2('login')
     if(JSON.parse(localStorage.getItem('email'))===null){
       meth1(true)
       meth2(false)
+      setDis2('login')
     }else{
       alert('you are already logged in');
       // <Alert severity="info">you are already logged in</Alert>

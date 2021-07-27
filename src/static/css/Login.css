@@ -7,3 +7,9 @@
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.151);
 }
+
+@media (max-width:700px) {
+    .login_card{
+        width: 90%;
+    }
+}
