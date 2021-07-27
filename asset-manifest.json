@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/covdel2021/static/css/main.25beb02b.chunk.css",
+    "main.js": "/covdel2021/static/js/main.8acc6c73.chunk.js",
+    "main.js.map": "/covdel2021/static/js/main.8acc6c73.chunk.js.map",
+    "runtime-main.js": "/covdel2021/static/js/runtime-main.132022e9.js",
+    "runtime-main.js.map": "/covdel2021/static/js/runtime-main.132022e9.js.map",
+    "static/css/2.68b64559.chunk.css": "/covdel2021/static/css/2.68b64559.chunk.css",
+    "static/js/2.f370ce19.chunk.js": "/covdel2021/static/js/2.f370ce19.chunk.js",
+    "static/js/2.f370ce19.chunk.js.map": "/covdel2021/static/js/2.f370ce19.chunk.js.map",
+    "static/js/3.20648b46.chunk.js": "/covdel2021/static/js/3.20648b46.chunk.js",
+    "static/js/3.20648b46.chunk.js.map": "/covdel2021/static/js/3.20648b46.chunk.js.map",
+    "index.html": "/covdel2021/index.html",
+    "static/css/2.68b64559.chunk.css.map": "/covdel2021/static/css/2.68b64559.chunk.css.map",
+    "static/css/main.25beb02b.chunk.css.map": "/covdel2021/static/css/main.25beb02b.chunk.css.map",
+    "static/js/2.f370ce19.chunk.js.LICENSE.txt": "/covdel2021/static/js/2.f370ce19.chunk.js.LICENSE.txt",
+    "static/media/shopping-online-removebg-preview.68347f55.png": "/covdel2021/static/media/shopping-online-removebg-preview.68347f55.png",
+    "static/media/undraw_shopping_app_flsj.e2633bb4.svg": "/covdel2021/static/media/undraw_shopping_app_flsj.e2633bb4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.132022e9.js",
+    "static/css/2.68b64559.chunk.css",
+    "static/js/2.f370ce19.chunk.js",
+    "static/css/main.25beb02b.chunk.css",
+    "static/js/main.8acc6c73.chunk.js"
+  ]
+}
