@@ -165,6 +165,7 @@ const Buyer = () => {
             onClick={() => {
               setWhat("cart");
             }}
+            style={{display:what==='cart'?'none':'inline'}}
           >
             <Tooltip title="Go to CartList">
               <Fab color="secondary" aria-label="add">

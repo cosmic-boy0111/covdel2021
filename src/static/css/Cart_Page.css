@@ -115,6 +115,11 @@
 .cart_card_details input{
     width: 3rem;
     border: 2px solid rgb(71, 70, 70);
+    border: none;
+    outline: none;
+    background-color: rgb(227 246 255);
+    border-radius: 2px;
+    text-align: center;
 }
 
 
@@ -130,6 +135,19 @@
         flex-direction: column;
         /* justify-content: center; */
         align-items: center;
+    }
+
+    .cart_card_main{
+        width: 12rem;
+        margin-bottom: .5rem;
+    }
+
+    .cart_card_body{
+        width: 12rem;
+    }
+
+    .cart_card_details p{
+        font-size: 13px;
     }
 
 

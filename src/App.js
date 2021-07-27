@@ -20,6 +20,7 @@ const App = () => {
     //         <LoginPage />
     //       </Route>
     //       <Route exact path="/buyer">
+    
             <Buyer />
     //       {/* </Route>
     //     </Switch>

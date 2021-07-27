@@ -127,7 +127,7 @@ const Cart = (props) => {
 
   const func = (val, e) => {
     if (!(e.target.value >= 0 && e.target.value<=999))  {
-      return alert("please enter valid quantity");
+      return alert("please enter valid quantity between 1 and 999");
     }
 
     val.qnt = e.target.value;
