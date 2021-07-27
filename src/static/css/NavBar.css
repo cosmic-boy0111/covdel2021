@@ -45,3 +45,24 @@
     margin: 0.5rem 0;
 }
 
+.drawer{
+    display: none;
+}
+
+.with_drawer{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 700px) {
+    .st_name{
+        display: none;
+    }
+    .navbar{
+        margin: 0 1rem;
+    }
+    .drawer{
+        display: inline;
+    }
+}
+

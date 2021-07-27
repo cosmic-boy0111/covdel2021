@@ -16,6 +16,7 @@
 }
 
 
+
 .info_div{
     /* line-height: 3rem; */
     width: 45%;
@@ -28,6 +29,10 @@
 .store_name{
     font-size: 3rem;
     margin-bottom: 3rem;
+    font-weight: bold;
+}
+.store_name2{
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -62,17 +67,42 @@
 
 @keyframes gaurav {
     0%{
-        left: -4rem;
+        left: -2rem;
     }
     25%{            
-        left: 8rem;
+        left: 4rem;
     }
     /* 75%{
         left: 4rem;
     } */
     100%{
-        left: -4rem;
+        left: -2rem;
     }
+}
+
+
+
+@media (max-width:700px) {
+    .log_main{
+        flex-direction: column-reverse;
+    }
+
+    .info_div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .btn_div{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .page_img img{
+        width: 10rem;
+    }
+
 }
 
 

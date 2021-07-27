@@ -4,13 +4,14 @@ import '../../static/css/NavBar.css'
 import Button from '@material-ui/core/Button';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import DropDown from './subPages/DropDown';
+import Drawer from './subPages/Drawer'
 
 // import Alert from '@material-ui/lab/Alert';
 
 // import Selectme from './Selectme';
 
 
-const NavBar = ({meth1,meth2,setDis2}) => {
+const NavBar = ({meth1,meth2,setDis2,setWhat,toast}) => {
 
   const func1 = () => {
     if(JSON.parse(localStorage.getItem('email'))===null){
@@ -36,26 +37,12 @@ const NavBar = ({meth1,meth2,setDis2}) => {
   return (
     <nav  className='navbar'>
       <div className='nav_div'>
-        <div>
+        <div className='with_drawer'>
+        <span className='drawer'><Drawer setWhat={setWhat} toast={toast}/></span>
         <img src={logo} alt="" className='nav_logo'/>
-        <span>Store Name </span> 
+        <span className='st_name'>Store Name </span> 
         </div>
-        {/* <div className='select_div'>
-        
-        <select className="form-select " aria-label="Default select example" onChange={(e) => console.log(e.target.value)}>
-          <option selected> Select Your Search Field</option>
-          <option value="food">Food</option>
-          <option value="fruit">Fruit & vegetables</option>
-          <option value="fashion">Fashion Accessories</option>
-        </select>
-        </div> */}
         <div className='nav_btn_group'>
-          {/* <Button variant="contained" color="primary"  className='nav_btn1' onClick={func1}>
-            Login
-          </Button>
-          <Button variant="contained" color="secondary" className='nav_btn1' onClick={check2}>
-            Logout
-          </Button> */}
           <DropDown meth1={meth1} meth2={meth2} setDis2={setDis2}/>
         </div>
 

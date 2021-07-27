@@ -12,7 +12,7 @@ const Slider = (props) => {
 
     const breakPoints = [
         {width: 1, itemsToShow: 1},
-        {width: 250, itemsToShow: 2},
+        {width: 250, itemsToShow: 1},
         {width: 500, itemsToShow: 3},
         {width: 1500, itemsToShow: 4},
     ]
@@ -20,7 +20,7 @@ const Slider = (props) => {
     // const arr = props.arr;
 
     return (
-        <div className="App">
+        <div className="App" >
             <Carousel breakPoints={breakPoints} >
                 {
                     (props.arr).map((val) => <Slide 

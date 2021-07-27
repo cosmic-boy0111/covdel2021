@@ -42,11 +42,14 @@ const MoreInfo = (props) => {
         var bool2 = true;
 
         var c = JSON.parse(localStorage.getItem('cart'));
-        c.forEach(e => {
-          if(e.id===props.id){
-            bool2 = false;
-          }
-        })
+        if(c!==null){
+
+          c.forEach(e => {
+            if(e.id===props.id){
+              bool2 = false;
+            }
+          })
+        }
 
         bool?props.toast('Added to whishList',{
               type:'success',
@@ -78,9 +81,13 @@ const MoreInfo = (props) => {
           }
         });
 
-        var t = JSON.parse(localStorage.getItem('like')).filter((e) => {
-          return e.id!==props.obj.id;
-        })
+        var t = JSON.parse(localStorage.getItem('like'))
+        if(t!==null){
+
+          t.filter((e) => {
+            return e.id!==props.obj.id;
+          })
+        }
 
         localStorage.setItem('like',JSON.stringify(t));
 

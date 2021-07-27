@@ -8,7 +8,11 @@ const LoginPage = () => {
     return (<>
         <div className='log_main'>
             <div className='info_div'>
-                <h1 className="store_name"> Welcome to Store Name</h1>
+                <span>
+
+                <h1 className='store_name2'> Welcome</h1>
+                <h1 className="store_name"> Store Name</h1>
+                </span>
                 <p className='about_store'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, ipsum.</p>
                 <p className='about_store'>Select you field</p>
                 <div className='btn_div'>

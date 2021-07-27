@@ -32,11 +32,14 @@ const Slide = (props) => {
         var bool2 = true;
 
         var c = JSON.parse(localStorage.getItem('cart'));
-        c.forEach(e => {
-          if(e.id===props.id){
-            bool2 = false;
-          }
-        })
+        if(c!==null){
+
+          c.forEach(e => {
+            if(e.id===props.id){
+              bool2 = false;
+            }
+          })
+        }
 
         
 
@@ -92,8 +95,9 @@ const Slide = (props) => {
         });
 
         var t = JSON.parse(localStorage.getItem('like')).filter((e) => {
-          return e.id!==props.id;
-        })
+            return e.id!==props.id;
+          })
+        
 
         localStorage.setItem('like',JSON.stringify(t));
         props.setLike(t)
