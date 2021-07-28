@@ -13,18 +13,18 @@ import {
 
 const App = () => {
   return (
-    // <Router>
-    // <Switch>
+    <Router>
+    <Switch>
 
-    //       <Route exact path='/'>
-    //         <LoginPage />
-    //       </Route>
-    //       <Route exact path="/buyer">
+          <Route exact path='/'>
+            <LoginPage />
+          </Route>
+          <Route exact path="/buyer">
     
             <Buyer />
-    //       {/* </Route>
-    //     </Switch>
-    // </Router> */}
+          </Route>
+         </Switch>
+     </Router>
   )
 }
 

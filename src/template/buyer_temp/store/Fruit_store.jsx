@@ -34,7 +34,7 @@ const Fruit_store = [
     {
         id:'14',
         img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg7mOWS20qCN7LnUFU-rTdVR4gCfUOs06WFA&usqp=CAU',
-        name:'dragon fruit fruit fruit',
+        name:'dragon fruit',
         rating:'2',
         prize:'99' ,
         qnt:'1',

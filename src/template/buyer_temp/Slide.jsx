@@ -31,23 +31,22 @@ const Slide = (props) => {
 
         var bool2 = true;
 
-        var c = JSON.parse(localStorage.getItem('cart'));
-        if(c!==null){
+        var c = JSON.parse(localStorage.getItem('cart'))===null?[]:JSON.parse(localStorage.getItem('cart'));
 
-          c.forEach(e => {
+          c.forEach((e) => {
             if(e.id===props.id){
               bool2 = false;
             }
           })
-        }
+        
 
         
 
-        bool?props.toast('Added to whishList',{
+        bool && bool2?props.toast('Added to whishList',{
               type:'success',
               position:'bottom-left',
               autoClose: 2000
-            }) : props.toast('Already Added to whishList',{
+            }) : props.toast('Already Added to CartList',{
               type:'error',
               position:'bottom-left',
               autoClose: 2000
@@ -94,7 +93,7 @@ const Slide = (props) => {
           }
         });
 
-        var t = JSON.parse(localStorage.getItem('like')).filter((e) => {
+        var t = (JSON.parse(localStorage.getItem('like'))===null?[]:JSON.parse(localStorage.getItem('like'))).filter((e) => {
             return e.id!==props.id;
           })
         
@@ -118,8 +117,8 @@ const Slide = (props) => {
                 prize: props.prize,
                 title:props.title,
                 desc: props.desc
-              }]
-            ))
+            }]
+        ))
 
         return [...p,{
           id: props.id,
@@ -147,6 +146,7 @@ const Slide = (props) => {
         desc: props.desc
       })
       props.setTitle(props.title)
+
     }
     
     

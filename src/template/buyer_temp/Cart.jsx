@@ -201,7 +201,7 @@ const Cart = (props) => {
                   <div className="cart_card_main2">
                     <div className="cart_card_body2">
                       <img src={val.img} alt="" />
-                      <div className="cart_card_details">
+                      <div className="cart_card_details2">
                         <p>{val.name}</p>
                         <p>${val.prize}</p>
                         <input

@@ -41,15 +41,14 @@ const MoreInfo = (props) => {
 
         var bool2 = true;
 
-        var c = JSON.parse(localStorage.getItem('cart'));
-        if(c!==null){
+        var c = JSON.parse(localStorage.getItem('cart'))===null?[]:JSON.parse(localStorage.getItem('cart'));
 
           c.forEach(e => {
             if(e.id===props.id){
               bool2 = false;
             }
           })
-        }
+        
 
         bool?props.toast('Added to whishList',{
               type:'success',
@@ -66,6 +65,9 @@ const MoreInfo = (props) => {
           return bool2?[...p,props.obj]:[...p]
         
       })
+      setTimeout(() => {
+        setShow(true)
+      }, 1000);
     }
     
     const funAdd = () =>{
@@ -81,13 +83,12 @@ const MoreInfo = (props) => {
           }
         });
 
-        var t = JSON.parse(localStorage.getItem('like'))
-        if(t!==null){
+        var t = JSON.parse(localStorage.getItem('like'))===null?[]:JSON.parse(localStorage.getItem('like'))
 
           t.filter((e) => {
             return e.id!==props.obj.id;
           })
-        }
+        
 
         localStorage.setItem('like',JSON.stringify(t));
 
@@ -103,6 +104,9 @@ const MoreInfo = (props) => {
         return [...p,props.obj]
 
       })
+      setTimeout(() => {
+        setShow2(true)
+      }, 1000);
     }
 
     const similar = (title) =>{
@@ -141,7 +145,6 @@ const MoreInfo = (props) => {
             </Button>
           </Tooltip>
             <Tooltip title="Add">
-
             <Button color="primary" onClick={funAdd}>
             <AddRoundedIcon style={{color:show2?'#3f51b5':'#2cbc63'}}/>
             </Button>
@@ -152,7 +155,6 @@ const MoreInfo = (props) => {
         <div style={{opacity:op?'1':'0.5'}}>
             {similar(props.title)}
         </div>
-
         </>
     )
 }

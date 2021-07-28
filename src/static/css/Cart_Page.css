@@ -112,7 +112,15 @@
     justify-content: center;
 }
 
-.cart_card_details input{
+.cart_card_details2{
+    line-height: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart_card_details2 input{
     width: 3rem;
     border: 2px solid rgb(71, 70, 70);
     border: none;
@@ -149,6 +157,12 @@
     .cart_card_details p{
         font-size: 13px;
     }
+
+    .cart_card_details{
+        height: 100%;
+        line-height: normal;
+    }
+
 
 
 }

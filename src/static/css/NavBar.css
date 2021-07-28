@@ -52,6 +52,7 @@
 .with_drawer{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 @media (max-width: 700px) {
@@ -64,6 +65,7 @@
         top: 0;
         background-color: white;
         width: 100%;
+        z-index: 21;
     }
 
     .nav_div{
