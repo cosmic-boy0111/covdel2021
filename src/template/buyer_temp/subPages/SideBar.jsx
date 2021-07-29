@@ -16,7 +16,7 @@ const SideBar = ({setWhat,dis,setDis}) => {
 
 return(
     <div className="side_bar">
-                    <div onClick={()=>{
+                     <a href="/buyer"><div onClick={()=>{
                          setDis(true)
                          setWhat('home')
 
@@ -28,16 +28,18 @@ return(
                          </span>
                          
 
-                    </div>
-                    <div onClick={()=>{setDis(true)
+                    </div> 
+                    </a>
+                     <a href="/food"><div onClick={()=>{setDis(true)
                     setWhat('food')}}><FastfoodRoundedIcon />
                          
                     <span style={{display:dis?'inline':'none'}}>
                          food <KeyboardArrowRightRoundedIcon/> 
                          </span> 
                               
-                    </div>
-                    <div onClick={()=>{setDis(true)
+                    </div> 
+                    </a>
+                    <a href="/fruit"><div onClick={()=>{setDis(true)
                     setWhat('fruit')}}><KitchenRoundedIcon/> 
                          
 
@@ -47,7 +49,8 @@ return(
                          </span>
                               
                     </div>
-                    <div onClick={()=>{setDis(true)
+                    </a>
+                    <a href="/fashion"><div onClick={()=>{setDis(true)
                     setWhat('fashion')}}><DevicesOtherRoundedIcon />
                          
 
@@ -57,7 +60,8 @@ return(
                          </span>
                               
                     </div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> 
+                    </a>
+                    <div onClick={()=>toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> 
 
                     
                     <span style={{display:dis?'inline':'none'}}>
@@ -65,7 +69,7 @@ return(
                     </span>
                          
                     </div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><FaceRoundedIcon /> 
+                    <div onClick={()=>toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})}><FaceRoundedIcon /> 
 
                     
                     <span style={{display:dis?'inline':'none'}}>
@@ -73,14 +77,14 @@ return(
                     </span>
                          
                     </div>
-                    <div onClick={()=>toast('currently no available',{type:'dark',position:'bottom-left',autoClose:2000})}><EmojiEmotionsRoundedIcon /> 
+                    <div onClick={()=>toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})}><EmojiEmotionsRoundedIcon /> 
                      
                     <span style={{display:dis?'inline':'none'}}>
                      kids <KeyboardArrowRightRoundedIcon/>
                     </span>
                     </div>
             </div>
-)
+          )
 }
 
 export default SideBar

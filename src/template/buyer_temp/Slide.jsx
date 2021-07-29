@@ -156,7 +156,7 @@ const Slide = (props) => {
       <div className="card1" >
       <Tooltip title='click for more info' placement="top">
 
-      <img src={props.img} alt="myPic" className="card__img" onClick={()=>setAll()}/>
+       <img src={props.img} alt="myPic" className="card__img" onClick={()=>setAll()}/>
       </Tooltip>
         <div className="card__info" >
           <span className="card__category">{props.name}</span>

@@ -8,6 +8,12 @@
     width: 95%; */
     /* position: fixed;
     top: 1rem; */
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100%;
+    z-index: 21;
+
 }
 
 .nav_logo{

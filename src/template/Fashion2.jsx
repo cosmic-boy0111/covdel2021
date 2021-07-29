@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import Login from "./Login";
 import "../static/css/Buyer.css";
 import Fab from "@material-ui/core/Fab";
@@ -18,7 +18,7 @@ import Fruit from "./buyer_temp/subPages/Fruit";
 import Cart from "./buyer_temp/Cart";
 import Profile from "./buyer_temp/subPages/Profile";
 
-const Buyer = () => {
+const Fashion2 = () => {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(true);
   const [show3, setShow3] = useState(true);
@@ -27,8 +27,6 @@ const Buyer = () => {
   const [what, setWhat] = useState("home");
   const [obj, setObj] = useState({});
   const [title, setTitle] = useState("");
-
-  
 
   const [like, setLike] = useState(
     JSON.parse(localStorage.getItem("like")) === null
@@ -62,17 +60,7 @@ const Buyer = () => {
       // return <Product setLike={setLike} setCart={setCart}/>
       return (
         <>
-          <h3>Food Products</h3>
-          <div className="res_div2">
-            <Food
-              setLike={setLike}
-              setCart={setCart}
-              toast={toast}
-              setWhat={setWhat}
-              setObj={setObj}
-              setTitle={setTitle}
-            />
-          </div>
+          
         </>
       );
     } else if (what === "fruit") {
@@ -80,17 +68,7 @@ const Buyer = () => {
       console.log(cart);
       return (
         <>
-          <h3>Fruit and Veg Products</h3>
-          <div className="res_div2">
-            <Fruit
-              setLike={setLike}
-              setCart={setCart}
-              toast={toast}
-              setWhat={setWhat}
-              setObj={setObj}
-              setTitle={setTitle}
-            />
-          </div>
+          
         </>
       );
     } else if (what === "fashion") {
@@ -98,31 +76,14 @@ const Buyer = () => {
       console.log(cart);
       return (
         <>
-          <h3>Fashion Products</h3>
-          <div className="res_div2">
-            <Fashion
-              setLike={setLike}
-              setCart={setCart}
-              toast={toast}
-              setWhat={setWhat}
-              setObj={setObj}
-              setTitle={setTitle}
-            />
-          </div>
+          
         </>
       );
     } else if (what === "more") {
       return (
-        <MoreInfo
-          obj={obj}
-          title={title}
-          setLike={setLike}
-          setCart={setCart}
-          toast={toast}
-          setWhat={setWhat}
-          setObj={setObj}
-          setTitle={setTitle}
-        />
+        <>
+
+        </>
       );
     } else if (what === "cart") {
       return (
@@ -145,10 +106,8 @@ const Buyer = () => {
     }
   };
 
-
   return (
     <div className='page'>
-      
       <NavBar
         meth1={setShow1}
         meth2={setShow2}
@@ -180,15 +139,21 @@ const Buyer = () => {
           </div>
           </a>
           <div className="product ">
-          { what!=='more'?
-          <Product
-          setLike={setLike}
-          setCart={setCart}
-          toast={toast}
-          setWhat={setWhat}
-          setObj={setObj}
-          setTitle={setTitle}
-        />:<MoreInfo
+          {what!=='more'?
+          <>
+          <h3>Fashion Products</h3>
+          <div className="res_div2">
+            <Fashion
+              setLike={setLike}
+              setCart={setCart}
+              toast={toast}
+              setWhat={setWhat}
+              setObj={setObj}
+              setTitle={setTitle}
+            />
+          </div>
+          </>:
+          <MoreInfo
           obj={obj}
           title={title}
           setLike={setLike}
@@ -199,16 +164,14 @@ const Buyer = () => {
           setTitle={setTitle}
         />
           }
-
           
           </div>
         </div>
 
         <ToastContainer />
       </div>
-      
     </div>
   );
 };
 
-export default Buyer;
+export default Fashion2;

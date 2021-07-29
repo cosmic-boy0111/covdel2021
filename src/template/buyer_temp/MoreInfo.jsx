@@ -50,7 +50,7 @@ const MoreInfo = (props) => {
           })
         
 
-        bool?props.toast('Added to whishList',{
+        bool && bool2 ?props.toast('Added to whishList',{
               type:'success',
               position:'bottom-left',
               autoClose: 2000
@@ -59,10 +59,10 @@ const MoreInfo = (props) => {
               position:'bottom-left',
               autoClose: 2000
             })
-
-        bool2? localStorage.setItem('like',JSON.stringify([...p,props.obj])): localStorage.setItem('like',JSON.stringify([...p]))
+            
+        bool2 ? localStorage.setItem('like',JSON.stringify([...p,props.obj])): localStorage.setItem('like',JSON.stringify([...p]))
         
-          return bool2?[...p,props.obj]:[...p]
+          return bool2 ?[...p,props.obj]:[...p]
         
       })
       setTimeout(() => {

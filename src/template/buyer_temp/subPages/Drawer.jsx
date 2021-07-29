@@ -33,8 +33,8 @@ const useStyles = makeStyles({
 const Drawer = ({setWhat,toast}) => {
 
 
-    const Icon = [<HomeRoundedIcon/>,<FastfoodRoundedIcon/>,<KitchenRoundedIcon/>,<FastfoodRoundedIcon/>,<PersonRoundedIcon/>,<FaceRoundedIcon/>,<EmojiEmotionsRoundedIcon/>]
-    const Go = ['home','food','fruit','fashion']
+    const Icon = [<HomeRoundedIcon/>,<FastfoodRoundedIcon/>,<KitchenRoundedIcon/>,<DevicesOtherRoundedIcon/>,<PersonRoundedIcon/>,<FaceRoundedIcon/>,<EmojiEmotionsRoundedIcon/>]
+    const Go = ['/buyer','/food','/fruit','/fashion']
 
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -68,10 +68,11 @@ const Drawer = ({setWhat,toast}) => {
     >
       <List>
         {['Home', 'Food', 'Fruit and Veg', 'Fashion','Men','Women','Kids'].map((text, index) => (
-          <ListItem button key={text} onClick={()=>toShow(index)} className='res_item'>
+          <a href={Go[index]}> <ListItem button key={text} onClick={()=>toShow(index)} className='res_item'>
             <ListItemIcon>{Icon[index]}</ListItemIcon>
             <ListItemText primary={text} />
-          </ListItem>
+          </ListItem></a>
+          
         ))}
       </List>
     </div>
