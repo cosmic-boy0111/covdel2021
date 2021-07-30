@@ -2,7 +2,7 @@ import React from 'react'
 import Fashion_store from '../store/Fashion_store'
 import Slide from '../Slide'
 
-const Fashion = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
+const Fashion = ({setLike,setCart,toast,setWhat,setBack,setObj, setTitle}) => {
     return (
         Fashion_store.map((val) => <Slide 
                     key={val.id}
@@ -17,6 +17,7 @@ const Fashion = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
                     setLike={setLike} setCart={setCart}
                     toast={toast}
                     setWhat={setWhat}
+                    setBack={setBack}
                     setObj={setObj} setTitle={setTitle}
                 />)
     )

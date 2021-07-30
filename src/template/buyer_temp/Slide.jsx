@@ -134,7 +134,16 @@ const Slide = (props) => {
     }
 
     const setAll = () =>{
-      props.setWhat('more')
+      props.setWhat((pre)=>{
+        props.setBack((pre2)=>{
+          if(pre!==pre2[pre2.length-1] && pre!=='more'){
+            return [...pre2,pre]
+          }else{
+            return [...pre2]
+          }
+        });
+        return 'more';
+      })
       props.setObj({
         id: props.id,
         img: props.img,

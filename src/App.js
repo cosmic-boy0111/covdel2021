@@ -41,7 +41,7 @@ const App = () => {
               <Buyer />
               
             </Route>
-            <Route exact path="/food">
+            {/* <Route exact path="/food">
               <Food2 />
             </Route>
             <Route exact path="/fruit">
@@ -52,7 +52,7 @@ const App = () => {
             </Route>
             <Route exact path="/cart">
               <Cart2 />
-            </Route>
+            </Route> */}
             <Route component={Page404}/>
           </Switch>
           </CSSTransition>

@@ -2,7 +2,7 @@ import React from 'react'
 import Fruit_store from '../store/Fruit_store';
 import Slide from '../Slide';
 
-const Fruit = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
+const Fruit = ({setLike,setCart,toast,setWhat,setBack,setObj, setTitle}) => {
     return(
         Fruit_store.map((val) => <Slide 
                     key={val.id}
@@ -17,6 +17,7 @@ const Fruit = ({setLike,setCart,toast,setWhat,setObj, setTitle}) => {
                     setLike={setLike} setCart={setCart}
                     toast={toast}
                     setWhat={setWhat}
+                    setBack={setBack}
                     setObj={setObj} setTitle={setTitle}
                 />)
     )

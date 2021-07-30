@@ -17,6 +17,7 @@ import MoreInfo from "./buyer_temp/MoreInfo";
 import Fruit from "./buyer_temp/subPages/Fruit";
 import Cart from "./buyer_temp/Cart";
 import Profile from "./buyer_temp/subPages/Profile";
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 
 const Buyer = () => {
   const [show1, setShow1] = useState(false);
@@ -25,6 +26,7 @@ const Buyer = () => {
   const [dis, setDis] = useState(true);
   const [dis2, setDis2] = useState("");
   const [what, setWhat] = useState("home");
+  const [back, setBack] = useState([]);
   const [obj, setObj] = useState({});
   const [title, setTitle] = useState("");
 
@@ -51,6 +53,7 @@ const Buyer = () => {
           setCart={setCart}
           toast={toast}
           setWhat={setWhat}
+          setBack={setBack}
           setObj={setObj}
           setTitle={setTitle}
         />
@@ -69,6 +72,7 @@ const Buyer = () => {
               setCart={setCart}
               toast={toast}
               setWhat={setWhat}
+              setBack={setBack}
               setObj={setObj}
               setTitle={setTitle}
             />
@@ -87,6 +91,7 @@ const Buyer = () => {
               setCart={setCart}
               toast={toast}
               setWhat={setWhat}
+              setBack={setBack}
               setObj={setObj}
               setTitle={setTitle}
             />
@@ -105,6 +110,7 @@ const Buyer = () => {
               setCart={setCart}
               toast={toast}
               setWhat={setWhat}
+              setBack={setBack}
               setObj={setObj}
               setTitle={setTitle}
             />
@@ -120,6 +126,7 @@ const Buyer = () => {
           setCart={setCart}
           toast={toast}
           setWhat={setWhat}
+          setBack={setBack}
           setObj={setObj}
           setTitle={setTitle}
         />
@@ -145,6 +152,16 @@ const Buyer = () => {
     }
   };
 
+  const GoToBack = () =>{
+    console.log(back);
+    if(back.length!==0){
+      setWhat(back[back.length-1]);
+      var l = back.pop();
+    }
+    console.log(back);
+  }
+
+
 
   return (
     <div className='page'>
@@ -154,6 +171,7 @@ const Buyer = () => {
         meth2={setShow2}
         setDis2={setDis2}
         setWhat={setWhat}
+        setBack={setBack}
         toast={toast}
       />
       <div className="buy_main" style={{ display: show3 ? "block" : "none" }}>
@@ -162,13 +180,25 @@ const Buyer = () => {
           style={{ display: show2 ? "block" : "none" }}
           className="product_container"
         >
-          <SideBar setWhat={setWhat} dis={dis} setDis={setDis} />
-          <a href="/cart">
+          <SideBar setWhat={setWhat} setBack={setBack} dis={dis} setDis={setDis} />
           <div
             className="cart_btn"
 
             onClick={() => {
-              setWhat("cart");
+              setWhat(
+
+                (pre)=>{
+                              setBack((pre2)=>{
+                                   if(pre!==pre2[pre2.length-1]){
+                                        return [...pre2,pre]
+                                   }else{
+                                        return [...pre2]
+                                   }
+                              })
+                              return 'cart';
+                         }
+
+              )
             }}
             style={{display:what==='cart'?'none':'inline'}}
           >
@@ -178,28 +208,21 @@ const Buyer = () => {
               </Fab>
             </Tooltip>
           </div>
-          </a>
+          <div
+            className="pre_btn"
+            style={{
+              bottom:what==='cart'?'0.5rem':'4.5rem'
+            }}
+            onClick={()=>GoToBack()}
+          >
+            <Tooltip title="previous">
+            <Fab size="small" color="primary" variant='outlined' aria-label="add" >
+              <ArrowBackIosRoundedIcon />
+            </Fab>
+            </Tooltip>
+          </div>
           <div className="product ">
-          { what!=='more'?
-          <Product
-          setLike={setLike}
-          setCart={setCart}
-          toast={toast}
-          setWhat={setWhat}
-          setObj={setObj}
-          setTitle={setTitle}
-        />:<MoreInfo
-          obj={obj}
-          title={title}
-          setLike={setLike}
-          setCart={setCart}
-          toast={toast}
-          setWhat={setWhat}
-          setObj={setObj}
-          setTitle={setTitle}
-        />
-          }
-
+            {useMe()}
           
           </div>
         </div>

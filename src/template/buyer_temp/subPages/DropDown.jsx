@@ -76,7 +76,7 @@ const DropDown = ({meth1,meth2,setDis2})=> {
       if(window.confirm('do you really wants to log out')===true){
         localStorage.removeItem('email');
         localStorage.removeItem('user');
-        localStorage.removeItem('pro_img');
+        localStorage.removeItem('img');
       }
       // console.log(t);
     }

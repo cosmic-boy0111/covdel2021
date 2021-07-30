@@ -11,7 +11,7 @@ import Drawer from './subPages/Drawer'
 // import Selectme from './Selectme';
 
 
-const NavBar = ({meth1,meth2,setDis2,setWhat,toast}) => {
+const NavBar = ({meth1,meth2,setDis2,setWhat,setBack,toast}) => {
 
   const func1 = () => {
     if(JSON.parse(localStorage.getItem('email'))===null){
@@ -38,7 +38,7 @@ const NavBar = ({meth1,meth2,setDis2,setWhat,toast}) => {
     <nav  className='navbar'>
       <div className='nav_div'>
         <div className='with_drawer'>
-        <span className='drawer'><Drawer setWhat={setWhat} toast={toast}/></span>
+        <span className='drawer'><Drawer setWhat={setWhat} setBack={setBack} toast={toast}/></span>
         <img src={logo} alt="" className='nav_logo'/>
         <span className='st_name'>Store Name </span> 
         </div>

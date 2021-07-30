@@ -14,7 +14,7 @@ const LoginPage = () => {
                 <h1 className="store_name"> Store Name</h1>
                 </span>
                 <p className='about_store'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, ipsum.</p>
-                <p className='about_store'>Select you field</p>
+                <p className='about_store'>Select your field</p>
                 <div className='btn_div'>
                 <a href="/buyer" className='link'>
                     <Button variant="outlined" color="primary"> buyer</Button>

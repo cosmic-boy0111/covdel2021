@@ -30,11 +30,11 @@ const useStyles = makeStyles({
   },
 });
 
-const Drawer = ({setWhat,toast}) => {
+const Drawer = ({setWhat,setBack,toast}) => {
 
 
     const Icon = [<HomeRoundedIcon/>,<FastfoodRoundedIcon/>,<KitchenRoundedIcon/>,<DevicesOtherRoundedIcon/>,<PersonRoundedIcon/>,<FaceRoundedIcon/>,<EmojiEmotionsRoundedIcon/>]
-    const Go = ['/buyer','/food','/fruit','/fashion']
+    const Go = ['home','food','fruit','fashion']
 
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -53,7 +53,18 @@ const Drawer = ({setWhat,toast}) => {
     if(index>=Go.length){
         toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})
     }else{
-      setWhat(Go[index])
+      setWhat(
+        (pre)=>{
+          setBack((pre2)=>{
+               if(pre!==pre2[pre2.length-1]){
+                    return [...pre2,pre]
+               }else{
+                    return [...pre2]
+               }
+          })
+          return Go[index];
+        }
+      )
     }
   }
 
@@ -68,10 +79,10 @@ const Drawer = ({setWhat,toast}) => {
     >
       <List>
         {['Home', 'Food', 'Fruit and Veg', 'Fashion','Men','Women','Kids'].map((text, index) => (
-          <a href={Go[index]}> <ListItem button key={text} onClick={()=>toShow(index)} className='res_item'>
+           <ListItem button key={text} onClick={()=>toShow(index)} className='res_item'>
             <ListItemIcon>{Icon[index]}</ListItemIcon>
             <ListItemText primary={text} />
-          </ListItem></a>
+          </ListItem>
           
         ))}
       </List>

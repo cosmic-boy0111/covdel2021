@@ -113,18 +113,18 @@ const MoreInfo = (props) => {
         if(title==='food'){
             return (<>
             <h3>Food Products</h3>
-            <div className="new_product_div"><Slider arr={Food_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
+            <div className="new_product_div"><Slider arr={Food_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>
             )
         }else if(title==='fruit'){
             return (<>
             <h3>Fruit Products</h3>
-            <div className="new_product_div"><Slider arr={Fruit_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
+            <div className="new_product_div"><Slider arr={Fruit_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>)
         }else if(title==='fashion'){
             return ( <>
             <h3>Fashion Products</h3>
-            <div className="new_product_div"><Slider arr={Fashion_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setObj={props.setObj} setTitle={props.setTitle}/></div>
+            <div className="new_product_div"><Slider arr={Fashion_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>)
         }
     }

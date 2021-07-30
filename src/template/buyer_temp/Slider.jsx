@@ -36,6 +36,7 @@ const Slider = (props) => {
                     setLike={props.setLike} setCart={props.setCart}
                     toast={props.toast}
                     setWhat={props.setWhat}
+                    setBack={props.setBack}
                     setObj={props.setObj} setTitle={props.setTitle}
                 />)}
             </Carousel>

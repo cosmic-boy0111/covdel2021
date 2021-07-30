@@ -11,14 +11,23 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const SideBar = ({setWhat,dis,setDis}) => {
+const SideBar = ({setWhat,setBack,dis,setDis}) => {
 
 
 return(
     <div className="side_bar">
-                     <a href="/buyer"><div onClick={()=>{
+                     <div onClick={()=>{
                          setDis(true)
-                         setWhat('home')
+                         setWhat((pre)=>{
+                              setBack((pre2)=>{
+                                   if(pre!==pre2[pre2.length-1]){
+                                        return [...pre2,pre]
+                                   }else{
+                                        return [...pre2]
+                                   }
+                              })
+                              return 'home';
+                         })
 
                          }}><HomeRoundedIcon />
                          
@@ -29,18 +38,39 @@ return(
                          
 
                     </div> 
-                    </a>
-                     <a href="/food"><div onClick={()=>{setDis(true)
-                    setWhat('food')}}><FastfoodRoundedIcon />
+                    
+                     <div onClick={()=>{setDis(true)
+                    setWhat(
+                         (pre)=>{
+                              setBack((pre2)=>{
+                                   if(pre!==pre2[pre2.length-1]){
+                                        return [...pre2,pre]
+                                   }else{
+                                        return [...pre2]
+                                   }
+                              })
+                              return 'food';
+                         }
+                    )}}><FastfoodRoundedIcon />
                          
                     <span style={{display:dis?'inline':'none'}}>
                          food <KeyboardArrowRightRoundedIcon/> 
                          </span> 
                               
                     </div> 
-                    </a>
-                    <a href="/fruit"><div onClick={()=>{setDis(true)
-                    setWhat('fruit')}}><KitchenRoundedIcon/> 
+                    <div onClick={()=>{setDis(true)
+                    setWhat(
+                         (pre)=>{
+                              setBack((pre2)=>{
+                                   if(pre!==pre2[pre2.length-1]){
+                                        return [...pre2,pre]
+                                   }else{
+                                        return [...pre2]
+                                   }
+                              })
+                              return 'fruit';
+                         }
+                    )}}><KitchenRoundedIcon/> 
                          
 
                          
@@ -49,9 +79,19 @@ return(
                          </span>
                               
                     </div>
-                    </a>
-                    <a href="/fashion"><div onClick={()=>{setDis(true)
-                    setWhat('fashion')}}><DevicesOtherRoundedIcon />
+                    <div onClick={()=>{setDis(true)
+                    setWhat(
+                         (pre)=>{
+                              setBack((pre2)=>{
+                                   if(pre!==pre2[pre2.length-1]){
+                                        return [...pre2,pre]
+                                   }else{
+                                        return [...pre2]
+                                   }
+                              })
+                              return 'fashion';
+                         }
+                    )}}><DevicesOtherRoundedIcon />
                          
 
                          
@@ -60,7 +100,7 @@ return(
                          </span>
                               
                     </div>
-                    </a>
+                    
                     <div onClick={()=>toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> 
 
                     

@@ -190,7 +190,7 @@ const Cart = (props) => {
         <h3 style={{ textAlign: "center" }}>Cart List</h3>
         <div
           className="cart_container"
-          style={{ height: props.like.length === 0 ? "63vh" : "42vh" }}
+          style={{ height: props.like.length === 0 ? "70vh" : "47vh" }}
         >
           {props.cart.length === 0 ? (
             <div style={{ textAlign: "center" }}>Cart List is Empty!!! 😧</div>

@@ -84,8 +84,15 @@
 
 .cart_btn{
     position: fixed;
-    bottom: 1rem;
-    right: 2rem;
+    bottom: 0.5rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+.pre_btn{
+    position: fixed;
+    bottom: 4.5rem;
+    right: 1.5rem;
     z-index: 100;
 }
 
@@ -126,6 +133,12 @@
         position: fixed;
         bottom: 0.5rem;
         right: 0.5rem;
+        z-index: 100;
+    }
+    .pre_btn{
+        position: fixed;
+        bottom: 4.5rem;
+        right: 1rem;
         z-index: 100;
     }
 

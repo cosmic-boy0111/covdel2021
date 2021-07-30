@@ -5,15 +5,8 @@
     align-items: center;
 }
 
-.profile_info span{
-    width: 5rem;
+.profile_info img{
     height: 5rem;
+    width: 5rem;
     border-radius: 50%;
-    /* background-color: red; */
-    /* border: 2px solid rgb(51, 51, 51); */
-    text-align: center center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(101, 199, 245, 0.335);
 }
