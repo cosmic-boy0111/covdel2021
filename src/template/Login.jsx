@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import '../static/css/Login.css'
+import '../static/css/buyer_css/Login.css'
 import Button from '@material-ui/core/Button';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import IconButton from '@material-ui/core/IconButton';

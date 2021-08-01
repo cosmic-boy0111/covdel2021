@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import '../../../static/css/profile.css'
+import '../../../static/css/buyer_css/profile.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';

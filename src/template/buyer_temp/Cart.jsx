@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../static/css/Cart_Page.css";
+import "../../static/css/buyer_css/Cart_Page.css";
 
 import Carousel from "react-elastic-carousel";
 import Button from "@material-ui/core/Button";
@@ -7,6 +7,7 @@ import ArrowDropDownRoundedIcon from "@material-ui/icons/ArrowDropDownRounded";
 import AddRoundedIcon from "@material-ui/icons/AddRounded";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
+import empty from '../../static/images/undraw_empty_cart_co35.svg'
 
 const Cart = (props) => {
   const breakPoints = [
@@ -154,6 +155,39 @@ const Cart = (props) => {
     setTotal(tt);
   };
 
+
+  const proceed = () =>{
+    if(props.cart.length!==0 && JSON.parse(localStorage.getItem('email'))!==null){
+      if(JSON.parse(localStorage.getItem('order_list'))===null){
+        let obj = {
+          name:JSON.parse(localStorage.getItem('user')),
+          email:JSON.parse(localStorage.getItem('email')),
+          pro:JSON.parse(localStorage.getItem('img')),
+          cart: JSON.parse(localStorage.getItem('cart'))
+        }
+        localStorage.setItem('order_list',JSON.stringify([obj]))
+      }else{
+        let obj = {
+          name:JSON.parse(localStorage.getItem('user')),
+          email:JSON.parse(localStorage.getItem('email')),
+          pro:JSON.parse(localStorage.getItem('img')),
+          cart: JSON.parse(localStorage.getItem('cart'))
+        }
+        localStorage.setItem('order_list',JSON.stringify([
+          ...JSON.parse(localStorage.getItem('order_list')),obj
+        ]))
+      }
+      props.setCart([])
+      localStorage.setItem('cart',JSON.stringify([]))
+      setTotal(0)
+    }else if(props.cart.length===0){
+      alert('cart list is empty!!!')
+    }
+    else{
+      alert('kindly sing in');
+    }
+  }
+
   return (
     <>
       <div
@@ -193,7 +227,11 @@ const Cart = (props) => {
           style={{ height: props.like.length === 0 ? "70vh" : "47vh" }}
         >
           {props.cart.length === 0 ? (
-            <div style={{ textAlign: "center" }}>Cart List is Empty!!! 😧</div>
+            <div className='empty_cart'>
+              <img src={empty} alt="" />
+              <p>Cart is Empty</p>
+              <p>Please Add Some Products</p>
+            </div>
           ) : (
             props.cart.map((val) => {
               return (
@@ -230,7 +268,7 @@ const Cart = (props) => {
         </div>
         <div className="cart_card_btn">
           <div>Total: ${total}</div>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="primary" onClick={proceed}>
             proceed
           </Button>
         </div>

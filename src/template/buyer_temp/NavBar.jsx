@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../../static/images/shopping-online-removebg-preview.png'
-import '../../static/css/NavBar.css'
+import '../../static/css/buyer_css/NavBar.css'
 import Button from '@material-ui/core/Button';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import DropDown from './subPages/DropDown';

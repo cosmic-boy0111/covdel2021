@@ -82,7 +82,7 @@
 
 
 
-@media (max-width:700px) {
+@media (max-width:900px) {
     .log_main{
         flex-direction: column-reverse;
     }

@@ -1,0 +1,172 @@
+.seller{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+}
+
+.seller header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 30vh;
+    padding: 0 5%;
+    border: 2px solid rgb(221, 219, 219);
+}
+
+.first{
+    display: flex;
+    align-items: center;
+}
+
+.owner{
+    text-align: left;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    line-height: 0.5rem;
+}
+
+.edit{
+    align-self: flex-start;
+}
+
+.seller_body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    /* border: 2px solid red; */
+    margin-top: 1rem;
+}
+
+.add_new_product{
+    width: 30%;
+    height: 100%;
+    border: 2px solid rgb(221, 219, 219);
+
+    text-align: center;
+    margin-right: 0.5rem ;
+}
+
+.add{
+    padding-top: 10px;
+    height: 95vh;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add2{
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.add2 img{
+    position: relative;
+    animation: rocket 2s ease 0s 1 both;
+}
+
+@keyframes rocket {
+    0%{
+        bottom: 0rem;
+    }
+    100%{
+        bottom: 20rem;
+    }
+}
+
+
+.add_new_product img{
+    width: 90%;
+    /* height: 17rem; */
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.add_new_product form{
+    width: 90%;
+}
+
+.list_of_orders{
+    text-align: center;
+    border: 2px solid rgb(221, 219, 219);
+
+    width: 70%;
+    height: 100%;
+    margin-left: 0.5rem;
+}
+
+.list{
+    padding-top: 10px;
+    height: 95vh;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    text-align: initial;
+
+    /* border: 2px solid red; */
+}
+
+.table{
+    width: 90%;
+    /* border: 2px solid red; */
+    margin: 0 auto;
+    background-color: rgb(245 241 241 / 88%);
+}
+
+.user_details{
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(241 237 237);
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 0.5rem;
+
+}
+
+.user_details p{
+    margin: 0;
+    margin-left: 1rem;
+}
+
+.pro_img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+th{
+    text-align: center;
+}
+
+td{
+    text-align: center;
+}
+
+.order{
+    margin-bottom: 10px;
+}
+
+.empty{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty_logo{
+    width: 15rem;
+}
+
+
+

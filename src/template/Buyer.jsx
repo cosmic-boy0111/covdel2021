@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import Login from "./Login";
-import "../static/css/Buyer.css";
+import "../static/css/buyer_css/Buyer.css";
 import Fab from "@material-ui/core/Fab";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { ToastContainer, toast } from "react-toastify";
@@ -210,9 +210,9 @@ const Buyer = () => {
           </div>
           <div
             className="pre_btn"
-            style={{
-              bottom:what==='cart'?'0.5rem':'4.5rem'
-            }}
+            // style={{
+            //   bottom:what==='cart'?'0.5rem':'4.5rem'
+            // }}
             onClick={()=>GoToBack()}
           >
             <Tooltip title="previous">

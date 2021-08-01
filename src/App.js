@@ -19,6 +19,7 @@ import {
   TransitionGroup
 } from 'react-transition-group'
 import Page404 from './template/Page404';
+import Seller from './template/Seller';
 
 
 
@@ -37,9 +38,10 @@ const App = () => {
               <LoginPage />
             </Route>
             <Route exact path="/buyer">
-              
               <Buyer />
-              
+            </Route>
+            <Route exact path="/seller">
+              <Seller />
             </Route>
             {/* <Route exact path="/food">
               <Food2 />

@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Fashion from './subPages/Fashion'
 import Food from './subPages/Food'
 import Fruit from './subPages/Fruit'
-import '../../static/css/MoreInfo.css'
+import '../../static/css/buyer_css/MoreInfo.css'
 import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';

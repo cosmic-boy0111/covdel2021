@@ -12,6 +12,7 @@
     /* background-color: rgba(199, 214, 228, 0.507); */
     /* background-color: rgba(213, 233, 250, 0.89); */
     background-color: rgba(155, 208, 255, 0.794);
+    font-size: 14px;
 }
 
 .more_img{
@@ -50,7 +51,7 @@
     opacity: 1;
 }
 
-@media (max-width:500px) {
+@media (max-width:900px) {
     .more_info{
         height: 100%;
         display: flex;

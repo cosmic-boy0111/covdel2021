@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
-import '../static/css/LoginPage.css'
+import '../static/css/buyer_css/LoginPage.css'
 import logo from '../static/images/undraw_shopping_app_flsj.svg'
 
 
@@ -19,11 +19,11 @@ const LoginPage = () => {
                 <a href="/buyer" className='link'>
                     <Button variant="outlined" color="primary"> buyer</Button>
                 </a>
-                <a href="../../public/index.html" className='link'>
+                <a href="/seller" className='link'>
 
                     <Button variant="outlined" color="primary">seller</Button>
                 </a>
-                <a href="../../public/index.html" className='link'>
+                <a href="/error" className='link'>
 
                     <Button variant="outlined" color="primary">sender</Button>
                 </a>

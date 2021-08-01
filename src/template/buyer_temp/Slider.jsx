@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../static/css/Slider.css'
+import '../../static/css/buyer_css/Slider.css'
 import Carousel from 'react-elastic-carousel';
 import Slide from './Slide'
 import New_Store from './New_Store';

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Login from "./Login";
-import "../static/css/Buyer.css";
+import "../static/css/buyer_css/Buyer.css";
 import Fab from "@material-ui/core/Fab";
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { ToastContainer, toast } from "react-toastify";
