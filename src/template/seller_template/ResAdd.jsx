@@ -11,7 +11,8 @@ import Food_store from '../buyer_temp/store/Food_store';
 import Fruit_store from '../buyer_temp/store/Fruit_store';
 import Fashion_store from '../buyer_temp/store/Fashion_store';
 import { getElementError } from '@testing-library/react';
-
+import Fab from '@material-ui/core/Fab';
+import ClearRoundedIcon from '@material-ui/icons/ClearRounded';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
-  const Add = () =>{
-      const [img2, setImg2] = useState(logo);
+  const ResAdd = ({setTog}) =>{
+      const [img3, setImg3] = useState(logo);
       const [rocket, setRocket] = useState(true);
         const [newPro, setNewPro] = useState({
             name:'',
@@ -49,16 +50,18 @@ const useStyles = makeStyles((theme) => ({
 
       const classes = useStyles();
   
-      const imageHandler = (e) => {
+      const imageHandler2 = (e) => {
 
-          const reader = new FileReader();
-          reader.onload = () =>{
-              if(reader.readyState === 2){
-                  setImg2(reader.result)
+          const reader2 = new FileReader();
+          reader2.onload = () =>{
+              if(reader2.readyState === 2){
+                  setImg3(reader2.result)
                   // localStorage.setItem('up_img',JSON.stringify(reader.result))
+              }else if(reader2.readyState === 1){
+                  return alert('no such file');
               }
           }
-          reader.readAsDataURL(e.target.files[0])
+          reader2.readAsDataURL(e.target.files[0])
 
       }
 
@@ -67,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
         setRocket(false)
         var newObj = {
             id: uuid(),
-            img: img2,
+            img: img3,
             name: newPro.name,
             rating: newPro.rating,
             prize: newPro.prize,
@@ -85,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
         else if(newPro.title==='fashion'){
             Fashion_store.push(newObj);
         }
-        setImg2(logo)
+        setImg3(logo)
         setNewPro(
             {
                 name:'',
@@ -114,15 +117,21 @@ const useStyles = makeStyles((theme) => ({
                         <img src={Rocket} alt=""/>
                       </div>
                       <div className='add' style={{display:rocket?'flex':'none'}}>
-                      <form onSubmit={Add_new} > 
-                      <img src={img2} alt=""/>
-                      <input accept="image/*"  className={classes.input}  name='img' id="icon-button-file" type="file" onChange={imageHandler} required/>
-                      <label htmlFor="icon-button-file">
-                          <IconButton color="primary" aria-label="upload picture" component="span">
-                              <PhotoCamera /> 
-                          </IconButton>
-                          Upload
-                      </label>
+                      <form onSubmit={Add_new}> 
+                      <img src={img3} alt=""/>
+                      <input
+                            accept="image/*"
+                            className={classes.input}
+                            id="contained-button-file"
+                            multiple
+                            type="file"
+                            onChange={imageHandler2}
+                        />
+                        <label htmlFor="contained-button-file">
+                            <Button color="primary" component="span" >
+                                <PhotoCamera />
+                            </Button>
+                        </label>
                           <div className="mb-2">
                               <input type="text" className="form-control" style={{width:'100%'}} name='name' placeholder='Enter Product Name' required onChange={inputEvent} value={newPro.name}/>
                           </div>
@@ -171,11 +180,16 @@ const useStyles = makeStyles((theme) => ({
                               Add
                           </Button>
                       </form>
-                      
+                      <div className="upload" >
+
+                    <Fab size="medium" color="secondary" aria-label="add" onClick={()=>setTog(true)}>
+                        <ClearRoundedIcon />
+                    </Fab>
+                    </div>
                       </div>
           </>
       )
   }
 
-export default Add;
+export default ResAdd;
   

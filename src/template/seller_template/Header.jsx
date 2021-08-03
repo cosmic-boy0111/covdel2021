@@ -17,11 +17,11 @@ const Header = ({details,setShow}) =>{
                 </div>
                 
                 <div className='owner'>
-                    <p>{details.Oname}</p>
-                    <p>{details.Gmail}</p>
-                    <p>{details.Phone}</p>
-                    <IconButton aria-label="delete" color='secondary' className='edit' onClick={()=>setShow(true)}>
-                        <EditRoundedIcon fontSize="small" />
+                    <p>{details.Oname} <br /> {details.Gmail} <br />{details.Phone} </p>
+                    {/* <p></p>
+                    <p></p> */}
+                    <IconButton aria-label="delete" variant="outlined" className='edit' onClick={()=>setShow(true)} >
+                        <EditRoundedIcon fontSize="small" color='secondary' />
                     </IconButton>
                 </div>
             </header>

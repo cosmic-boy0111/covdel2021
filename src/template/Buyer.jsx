@@ -23,15 +23,13 @@ const Buyer = () => {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(true);
   const [show3, setShow3] = useState(true);
+  const [load, setLoad] = useState(true)
   const [dis, setDis] = useState(true);
   const [dis2, setDis2] = useState("");
   const [what, setWhat] = useState("home");
   const [back, setBack] = useState([]);
   const [obj, setObj] = useState({});
   const [title, setTitle] = useState("");
-
-  
-
   const [like, setLike] = useState(
     JSON.parse(localStorage.getItem("like")) === null
       ? []
@@ -42,6 +40,10 @@ const Buyer = () => {
       ? []
       : JSON.parse(localStorage.getItem("cart"))
   );
+  
+
+  
+
 
   const useMe = () => {
     if (what === "home") {
@@ -221,9 +223,8 @@ const Buyer = () => {
             </Fab>
             </Tooltip>
           </div>
-          <div className="product ">
+          <div className="product" style={{visibility:load?'visible':'hidden'}}>
             {useMe()}
-          
           </div>
         </div>
 

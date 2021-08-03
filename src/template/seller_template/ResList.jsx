@@ -4,11 +4,14 @@ import logo from '../../static/images/undraw_empty_xct9.svg'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import avatar from '../../static/images/undraw_male_avatar_323b.svg'
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
 
 
-const List = () => {
+
+const ResList = ({setTog}) => {
 
     const [orders, setOrders] = useState(
         JSON.parse(localStorage.getItem('order_list'))===null?[]: JSON.parse(localStorage.getItem('order_list')) 
@@ -49,7 +52,7 @@ const List = () => {
                             return(
                                 <div className='order'>
                                     <div >
-                                        <div className='user_details2'>
+                                    <div className='user_details2'>
                                             <div className="user_details">
                                             <img src={val.pro===null?avatar:val.pro} alt="" className='pro_img'/>
                                             <p>{val.name} <br /> {val.email}</p>
@@ -58,6 +61,7 @@ const List = () => {
                                                 <SendIcon fontSize='small' />
                                             </IconButton>
                                         </div>
+
                                     </div>
                                     <table class="table">
                                         <thead>
@@ -92,11 +96,16 @@ const List = () => {
                         })
                     }
 
-                    
+                    <div className="upload" >
+
+                    <Fab size="medium" color="secondary" aria-label="add" onClick={()=>setTog(false)}>
+                        <AddIcon />
+                    </Fab>
+                    </div>
                     
                     </div>
         </>
     )
 }
 
-export default List;
+export default ResList;

@@ -4,6 +4,8 @@ import Add from './seller_template/Add';
 import Header from './seller_template/Header';
 import List from './seller_template/List';
 import Button from '@material-ui/core/Button';
+import ResAdd from './seller_template/ResAdd';
+import ResList from './seller_template/ResList';
 
 
 
@@ -65,6 +67,8 @@ const StoreLogin = ({details,setSotre_details,setShow}) => {
 
 const Seller = () => {
 
+    const [tog, setTog] = useState(true)
+
     const [show, setShow] = useState(
         JSON.parse(localStorage.getItem('store_details'))===null?true:false
     );
@@ -88,10 +92,26 @@ const Seller = () => {
         <div className='seller'  style={{display:show?'none':'block'}}>
             <Header details={store_details} setShow={setShow}/>
             <div className='seller_body'>
+            <div className='add_new_product'>
+
                 <Add />
+            </div>
+            <div className="list_of_orders" >
+
                 <List />
             </div>
+            <div className='res'>
+
+            <div className='add_new_product2' style={{display:tog?'none':'block'}}>
+                <ResAdd setTog={setTog}/>
+            </div>
+            <div className="list_of_orders2" style={{display:tog?'block':'none'}}>
+                <ResList setTog={setTog}/>
+            </div>
+            </div>
+            </div>
         </div>
+                
         </>
     )
 }
