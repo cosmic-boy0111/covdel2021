@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
             rating:'',
             prize:'',
             title:'',
+            mfg: '',
+            exp:'',
             desc:''
         })
 
@@ -76,6 +78,8 @@ const useStyles = makeStyles((theme) => ({
             prize: newPro.prize,
             qnt:'1',
             title: newPro.title,
+            mfg: newPro.mfg,
+            exp: newPro.exp,
             desc: newPro.desc
         }
 
@@ -95,6 +99,8 @@ const useStyles = makeStyles((theme) => ({
                 rating:'',
                 prize:'',
                 title:'',
+                mfg:'',
+                exp:'',
                 desc:''
             }
         )
@@ -159,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
                                     alignSelf:'flex-start',
                                     marginBottom:'0'
                                 }}>Mfg Date</p>
-                              <input type="date" id="mfg" className="form-control" style={{width:'100%'}} name='Mfg'  required  placeholder='date'/>
+                              <input type="date" id="mfg" className="form-control" style={{width:'100%'}} name='mfg'  required  onChange={inputEvent} />
                           </div>
                           <div className="mb-2" style={{
                               display:'flex',
@@ -171,7 +177,7 @@ const useStyles = makeStyles((theme) => ({
                                     alignSelf:'flex-start',
                                     marginBottom:'0'
                                 }}>Exp Date</p>
-                              <input type="date" className="form-control" style={{width:'100%'}} name='Exp'  required  />
+                              <input type="date" className="form-control" style={{width:'100%'}} name='exp'  required  onChange={inputEvent}/>
                           </div>
                           <div className="mb-2">
                               <textarea className="form-control" rows="3" name="desc" placeholder='Description' required onChange={inputEvent} value={newPro.desc}></textarea>

@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@material-ui/core/Button';
 import '../static/css/buyer_css/LoginPage.css'
 import logo from '../static/images/undraw_shopping_app_flsj.svg'
+import {NavLink} from  'react-router-dom'
 
 
 const LoginPage = () => {
@@ -16,17 +17,16 @@ const LoginPage = () => {
                 <p className='about_store'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, id! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, ipsum.</p>
                 <p className='about_store'>Select your field</p>
                 <div className='btn_div'>
-                <a href="/buyer" className='link'>
+                <NavLink to="/buyer" className='link'>
                     <Button variant="outlined" color="primary"> buyer</Button>
-                </a>
-                <a href="/seller" className='link'>
+                </NavLink>
+                <NavLink to="/seller" className='link'>
 
                     <Button variant="outlined" color="primary">seller</Button>
-                </a>
-                <a href="/error" className='link'>
-
+                </NavLink>
+                <NavLink to="/error" className='link'>
                     <Button variant="outlined" color="primary">sender</Button>
-                </a>
+                </NavLink>
                 </div>
             </div>
             <div className='page_img' >
