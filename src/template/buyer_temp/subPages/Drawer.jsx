@@ -19,6 +19,7 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import EmojiEmotionsRoundedIcon from '@material-ui/icons/EmojiEmotionsRounded';
 import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRightRounded';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
+import {NavLink} from 'react-router-dom'
 
 
 const useStyles = makeStyles({
@@ -34,7 +35,7 @@ const Drawer = ({setWhat,setBack,toast}) => {
 
 
     const Icon = [<HomeRoundedIcon/>,<FastfoodRoundedIcon/>,<KitchenRoundedIcon/>,<DevicesOtherRoundedIcon/>,<PersonRoundedIcon/>,<FaceRoundedIcon/>,<EmojiEmotionsRoundedIcon/>]
-    const Go = ['home','food','fruit','fashion']
+    const Go = ['buyer','food','fruit','fashion']
 
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -79,11 +80,11 @@ const Drawer = ({setWhat,setBack,toast}) => {
     >
       <List>
         {['Home', 'Food', 'Fruit and Veg', 'Fashion','Men','Women','Kids'].map((text, index) => (
-           <ListItem button key={text} onClick={()=>toShow(index)} className='res_item'>
+          <NavLink to={ Go[index]!== undefined ? `/${Go[index]}`: '/b'}> <ListItem button key={text} className='res_item'>
             <ListItemIcon>{Icon[index]}</ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
-          
+          </NavLink>
         ))}
       </List>
     </div>

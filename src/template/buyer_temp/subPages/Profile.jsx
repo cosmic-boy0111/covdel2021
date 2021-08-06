@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import logo from '../../../static/images/undraw_male_avatar_323b.svg'
+import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,6 +23,7 @@ const Profile = ({meth1,meth2}) => {
 
 
     const classes = useStyles();
+    const history = useHistory();
 
     const [img, setImg] = useState(
         JSON.parse(localStorage.getItem('img'))===null?logo:JSON.parse(localStorage.getItem('img'))
@@ -57,7 +59,7 @@ const Profile = ({meth1,meth2}) => {
                 <div>{JSON.parse(localStorage.getItem('user'))}</div>
                 <div>Gmail : {JSON.parse(localStorage.getItem('email'))}</div>
             </div>
-            <IconButton aria-label="delete" onClick={closed} className='close'>
+            <IconButton aria-label="delete" onClick={()=>history.goBack()} className='close'>
                 <CloseRoundedIcon />
             </IconButton>
         </div>

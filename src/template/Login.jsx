@@ -3,7 +3,7 @@ import '../static/css/buyer_css/Login.css'
 import Button from '@material-ui/core/Button';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import IconButton from '@material-ui/core/IconButton';
-
+import {useHistory} from 'react-router-dom'
 
 
 const Login = ({meth1,meth2}) => {
@@ -11,13 +11,13 @@ const Login = ({meth1,meth2}) => {
     const [email, setEmail] = useState('')
     const [user, setUser] = useState('')
     const [pass, setPass] = useState('')
+    const history = useHistory();
 
     const check = () =>{
         if(email!=='' && pass!=='' && user!==''){
             localStorage.setItem('email',JSON.stringify(email));
             localStorage.setItem('user',JSON.stringify(user));
-            meth1(false)
-            meth2(true)
+            history.goBack();
         }
     }
 
@@ -50,7 +50,7 @@ const Login = ({meth1,meth2}) => {
             {/* <Button variant="outlined" onClick={closed} style={{marginLeft:'1rem'}}>
                  <CloseRoundedIcon />
             </Button> */}
-            <IconButton aria-label="delete" onClick={closed} className='close'>
+            <IconButton aria-label="delete" onClick={()=>history.goBack()} className='close'>
                 <CloseRoundedIcon />
             </IconButton>
             {/* </form> */}

@@ -9,11 +9,21 @@ import Tooltip from '@material-ui/core/Tooltip';
 import EjectRoundedIcon from '@material-ui/icons/EjectRounded';
 import KeyboardArrowLeftRoundedIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
+import {NavLink} from 'react-router-dom'
 
 const Slide = (props) => {
 
     const [show, setShow] = useState(true)
     const [show2, setShow2] = useState(true)
+    const myObj = {id: props.id,
+        img: props.img,
+        name: props.name,
+        rating: props.rating,
+        qnt:props.qnt,
+        prize: props.prize,
+        title:props.title,
+        desc: props.desc
+    }
 
     const funLike = () =>{
       setShow(false)
@@ -134,16 +144,7 @@ const Slide = (props) => {
     }
 
     const setAll = () =>{
-      props.setWhat((pre)=>{
-        props.setBack((pre2)=>{
-          if(pre!==pre2[pre2.length-1] && pre!=='more'){
-            return [...pre2,pre]
-          }else{
-            return [...pre2]
-          }
-        });
-        return 'more';
-      })
+      props.setWhat('more')
       props.setObj({
         id: props.id,
         img: props.img,
@@ -164,8 +165,7 @@ const Slide = (props) => {
         <div className="cards">       
       <div className="card1" >
       <Tooltip title='click for more info' placement="top">
-
-       <img src={props.img} alt="myPic" className="card__img" onClick={()=>setAll()}/>
+        <NavLink to={`/moreinfo/${props.title}/${props.id}`}> <img src={props.img} alt="myPic" className="card__img" onClick={()=>setAll()}/></NavLink>
       </Tooltip>
         <div className="card__info" >
           <span className="card__category">{props.name}</span>

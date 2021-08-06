@@ -9,6 +9,7 @@ import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded';
+import {NavLink,useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,7 @@ const DropDown = ({meth1,meth2,setDis2})=> {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const history = useHistory();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -124,14 +126,15 @@ const DropDown = ({meth1,meth2,setDis2})=> {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+
                     
-                    <MenuItem onClick={func1}>
+                    <MenuItem onClick={()=> {JSON.parse(localStorage.getItem('email'))===null?history.push('/login'):alert('you are already logged in')}}>
                     {
                       JSON.parse(localStorage.getItem('user'))===null? 'Sign in': <span>Sign in as <br/> <span style={{fontSize:'13px',opacity:'0.7'}}>{JSON.parse(localStorage.getItem('user'))}</span></span>
                     }
                     </MenuItem>
                     <hr className='nav_hr'/>
-                    <MenuItem onClick={func2}>Profile</MenuItem>
+                    <MenuItem onClick={()=> JSON.parse(localStorage.getItem('user'))===null? alert('kindly sign in') : history.push('/profile')}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>Your orders</MenuItem>
                     <hr className='nav_hr'/>
                     <MenuItem onClick={handleClose}>settings</MenuItem>

@@ -9,26 +9,23 @@ import KeyboardArrowRightRoundedIcon from '@material-ui/icons/KeyboardArrowRight
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {NavLink} from 'react-router-dom'
 
 
-const SideBar = ({setWhat,setBack,dis,setDis}) => {
+const SideBar = ({setWhat,dis,setDis}) => {
 
 
 return(
     <div className="side_bar">
-                     <div onClick={()=>{
+                    <div>
+
+                    
+                     <NavLink to='/buyer' onClick={()=>{
                          setDis(true)
-                         setWhat((pre)=>{
-                              setBack((pre2)=>{
-                                   if(pre!==pre2[pre2.length-1]){
-                                        return [...pre2,pre]
-                                   }else{
-                                        return [...pre2]
-                                   }
-                              })
+                         setWhat(
                               
-                              return 'home';
-                         })
+                              'home'
+                         )
 
                          }}><HomeRoundedIcon />
                          
@@ -38,39 +35,29 @@ return(
                          </span>
                          
 
-                    </div> 
+                    </NavLink> 
+                    </div>
                     
-                     <div onClick={()=>{setDis(true)
+                    <div>
+
+                    
+                     <NavLink to="/food" onClick={()=>{setDis(true)
                     setWhat(
-                         (pre)=>{
-                              setBack((pre2)=>{
-                                   if(pre!==pre2[pre2.length-1]){
-                                        return [...pre2,pre]
-                                   }else{
-                                        return [...pre2]
-                                   }
-                              })
-                              return 'food';
-                         }
+                         'food'
                     )}}><FastfoodRoundedIcon />
                          
                     <span style={{display:dis?'inline':'none'}}>
                          food <KeyboardArrowRightRoundedIcon/> 
                          </span> 
                               
-                    </div> 
-                    <div onClick={()=>{setDis(true)
+                    </NavLink> 
+                    </div>
+
+                    <div>
+                    <NavLink to="/fruit" onClick={()=>{setDis(true)
                     setWhat(
-                         (pre)=>{
-                              setBack((pre2)=>{
-                                   if(pre!==pre2[pre2.length-1]){
-                                        return [...pre2,pre]
-                                   }else{
-                                        return [...pre2]
-                                   }
-                              })
-                              return 'fruit';
-                         }
+                         'fruit'
+                         
                     )}}><KitchenRoundedIcon/> 
                          
 
@@ -79,19 +66,14 @@ return(
                          fruit and veg <KeyboardArrowRightRoundedIcon/>
                          </span>
                               
+                    </NavLink>
                     </div>
-                    <div onClick={()=>{setDis(true)
+
+                    <div>
+                    <NavLink to="/fashion" onClick={()=>{setDis(true)
                     setWhat(
-                         (pre)=>{
-                              setBack((pre2)=>{
-                                   if(pre!==pre2[pre2.length-1]){
-                                        return [...pre2,pre]
-                                   }else{
-                                        return [...pre2]
-                                   }
-                              })
-                              return 'fashion';
-                         }
+                        'fashion'
+                         
                     )}}><DevicesOtherRoundedIcon />
                          
 
@@ -100,6 +82,7 @@ return(
                          fashion <KeyboardArrowRightRoundedIcon/>
                          </span>
                               
+                    </NavLink>
                     </div>
                     
                     <div onClick={()=>toast('currently not available',{type:'dark',position:'bottom-left',autoClose:2000})}><PersonRoundedIcon /> 

@@ -65,6 +65,7 @@
     animation: gaurav 3s ease-in-out 0s infinite forwards;
 }
 
+
 @keyframes gaurav {
     0%{
         left: -2rem;

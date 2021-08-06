@@ -1,7 +1,10 @@
 import React from 'react'
 import logo from '../static/images/undraw_page_not_found_su7k.svg'
+import {useHistory} from 'react-router-dom'
+import { Button } from '@material-ui/core'
 
 const Page404 = () => {
+    const history = useHistory();
     return (
         <div style={
             {
@@ -31,6 +34,9 @@ const Page404 = () => {
                 fontSize:'1.5rem'
                 
             }}>Page Not Found</h1>
+            <Button variant="outlined" color="secondary" onClick={()=> history.push('/')}>
+                Back to Home
+            </Button>
             </div>
         </div>
     )

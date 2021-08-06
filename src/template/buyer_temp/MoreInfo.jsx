@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Fashion from './subPages/Fashion'
 import Food from './subPages/Food'
 import Fruit from './subPages/Fruit'
@@ -24,6 +24,29 @@ const MoreInfo = (props) => {
     const [show, setShow] = useState(true)
     const [show2, setShow2] = useState(true)
     const [op,setOp] = useState(true)
+    const [obj, setObj] = useState('')
+
+    useEffect(() => {
+      if(props.title==='food'){
+        Food_store.forEach(e =>{
+            if(e.id===props.obj){
+              setObj(e);
+            }
+          })
+      }else if(props.title === 'fruit'){
+          Fruit_store.forEach(e =>{
+            if(e.id===props.obj){
+              setObj(e);
+            }
+          })
+      }else if(props.title === 'fashion'){
+          Fashion_store.forEach(e =>{
+            if(e.id===props.obj){
+              setObj(e);
+            }
+          })
+      }
+    }, [])
 
     const funLike = () =>{
       setShow(false)
@@ -32,7 +55,7 @@ const MoreInfo = (props) => {
         var bool = true;
         const p = [];
         pre.forEach(e => {
-          if(e.id !== props.obj.id){
+          if(e.id !== obj.id){
             p.push(e);
           }else{
             bool = false;
@@ -44,7 +67,7 @@ const MoreInfo = (props) => {
         var c = JSON.parse(localStorage.getItem('cart'))===null?[]:JSON.parse(localStorage.getItem('cart'));
 
           c.forEach(e => {
-            if(e.id===props.id){
+            if(e.id===obj.id){
               bool2 = false;
             }
           })
@@ -60,9 +83,9 @@ const MoreInfo = (props) => {
               autoClose: 2000
             })
             
-        bool2 ? localStorage.setItem('like',JSON.stringify([...p,props.obj])): localStorage.setItem('like',JSON.stringify([...p]))
+        bool2 ? localStorage.setItem('like',JSON.stringify([...p,obj])): localStorage.setItem('like',JSON.stringify([...p]))
         
-          return bool2 ?[...p,props.obj]:[...p]
+          return bool2 ?[...p,obj]:[...p]
         
       })
       setTimeout(() => {
@@ -76,7 +99,7 @@ const MoreInfo = (props) => {
         var bool = true;
         const p = [];
         pre.forEach(e => {
-          if(e.id !== props.obj.id){
+          if(e.id !== obj.id){
             p.push(e);
           }else{
             bool = false;
@@ -86,7 +109,7 @@ const MoreInfo = (props) => {
         var t = JSON.parse(localStorage.getItem('like'))===null?[]:JSON.parse(localStorage.getItem('like'))
 
           t.filter((e) => {
-            return e.id!==props.obj.id;
+            return e.id!==obj.id;
           })
         
 
@@ -99,9 +122,9 @@ const MoreInfo = (props) => {
           :props.toast('Already Added in Cart',{
             type:'error',position:'bottom-left',autoClose: 2000})
 
-        localStorage.setItem('cart',JSON.stringify([...p,props.obj]))
+        localStorage.setItem('cart',JSON.stringify([...p,obj]))
 
-        return [...p,props.obj]
+        return [...p,obj]
 
       })
       setTimeout(() => {
@@ -109,19 +132,24 @@ const MoreInfo = (props) => {
       }, 1000);
     }
 
+    
+
     const similar = (title) =>{
-        if(title==='food'){
+      if(title==='food'){
+          
             return (<>
             <h3>Food Products</h3>
             <div className="new_product_div"><Slider arr={Food_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>
             )
         }else if(title==='fruit'){
+            
             return (<>
             <h3>Fruit Products</h3>
             <div className="new_product_div"><Slider arr={Fruit_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
             </>)
         }else if(title==='fashion'){
+            
             return ( <>
             <h3>Fashion Products</h3>
             <div className="new_product_div"><Slider arr={Fashion_store} setLike={props.setLike} setCart={props.setCart} toast={props.toast} setWhat={props.setWhat} setBack={props.setBack} setObj={props.setObj} setTitle={props.setTitle}/></div>
@@ -132,11 +160,11 @@ const MoreInfo = (props) => {
     return (
         <>
         <div id='more_info2' className='more_info'>
-            <img src={props.obj.img} alt="" className='more_img' onMouseOver={()=>setOp(false)} onMouseOut={()=>setOp(true)}/>
+            <img src={obj.img} alt="" className='more_img' onMouseOver={()=>setOp(false)} onMouseOut={()=>setOp(true)}/>
             <div className="more_info_about">
-                <h3>{props.obj.name}</h3>
+                <h3>{obj.name}</h3>
                 {/* <p className='inf'><GradeRoundedIcon style={{color:'gold'}}/>{props.obj.rating} {props.obj.prize}</p> */}
-                <p className='inf'>{props.obj.desc}</p>
+                <p className='inf'>{obj.desc}</p>
                 <div>
 
                 <Tooltip title="Like">

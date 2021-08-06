@@ -18,7 +18,8 @@
 // import Cart from "./buyer_temp/Cart";
 // import Profile from "./buyer_temp/subPages/Profile";
 
-// const Food2 = () => {
+// import {useParams} from 'react-router-dom'
+// const MoreInfo2 = () => {
 //   const [show1, setShow1] = useState(false);
 //   const [show2, setShow2] = useState(true);
 //   const [show3, setShow3] = useState(true);
@@ -27,6 +28,8 @@
 //   const [what, setWhat] = useState("home");
 //   const [obj, setObj] = useState({});
 //   const [title, setTitle] = useState("");
+
+//   const {similar,object} = useParams();
 
 //   const [like, setLike] = useState(
 //     JSON.parse(localStorage.getItem("like")) === null
@@ -68,17 +71,7 @@
 //       console.log(cart);
 //       return (
 //         <>
-//           <h3>Fruit and Veg Products</h3>
-//           <div className="res_div2">
-//             <Fruit
-//               setLike={setLike}
-//               setCart={setCart}
-//               toast={toast}
-//               setWhat={setWhat}
-//               setObj={setObj}
-//               setTitle={setTitle}
-//             />
-//           </div>
+          
 //         </>
 //       );
 //     } else if (what === "fashion") {
@@ -102,6 +95,7 @@
 //     } else if (what === "more") {
 //       return (
 //         <>
+
 //         </>
 //       );
 //     } else if (what === "cart") {
@@ -158,18 +152,17 @@
 //           </div>
 //           </a>
 //           <div className="product ">
-         
-//           <h3>Food Products</h3>
-//           <div className="res_div2">
-//             <Food
-//               setLike={setLike}
-//               setCart={setCart}
-//               toast={toast}
-//               setWhat={setWhat}
-//               setObj={setObj}
-//               setTitle={setTitle}
-//             />
-//           </div>
+          
+//           <MoreInfo
+//           obj={object}
+//           title={similar}
+//           setLike={setLike}
+//           setCart={setCart}
+//           toast={toast}
+//           setWhat={setWhat}
+//           setObj={setObj}
+//           setTitle={setTitle}
+//         />
           
 //           </div>
 //         </div>
@@ -180,15 +173,16 @@
 //   );
 // };
 
-// export default Food2;
+// export default MoreInfo2;
 
 
 import React from 'react'
 import BuyerBluePrint from './BuyerBluePrint'
+import {useParams} from 'react-router-dom'
 
-const Food2 = () => {
-  return <BuyerBluePrint comp='food'/>
+const MoreInfo2 = () => {
+    const {similar,object} = useParams();
+    return <BuyerBluePrint comp='more' similar={similar} object={object}/>
 }
 
-export default Food2
-
+export default MoreInfo2

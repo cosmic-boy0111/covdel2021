@@ -20,7 +20,10 @@ import {
 } from 'react-transition-group'
 import Page404 from './template/Page404';
 import Seller from './template/Seller';
-
+import MoreInfo2 from './template/MoreInfo2';
+import Login from './template/Login';
+import Profile from './template/buyer_temp/subPages/Profile';
+import StoreLogin from './template/seller_template/SellerLogin';
 
 
 const App = () => {
@@ -34,27 +37,17 @@ const App = () => {
         classNames='fade'
       >
         <Switch location={location}>
-            <Route exact path='/'>
-              <LoginPage />
-            </Route>
-            <Route exact path="/buyer">
-              <Buyer />
-            </Route>
-            <Route exact path="/seller">
-              <Seller />
-            </Route>
-            {/* <Route exact path="/food">
-              <Food2 />
-            </Route>
-            <Route exact path="/fruit">
-              <Fruit2 />
-            </Route>
-            <Route exact path="/fashion">
-              <Fashion2 />
-            </Route>
-            <Route exact path="/cart">
-              <Cart2 />
-            </Route> */}
+            <Route exact path='/' component={LoginPage} />
+            <Route exact path="/buyer" component={Buyer} />
+            <Route exact path="/seller" component={Seller} />
+            <Route exact path="/food" component={Food2} />
+            <Route exact path="/fruit" component={Fruit2} />
+            <Route exact path="/fashion" component={Fashion2} />
+            <Route exact path="/moreinfo/:similar/:object" component={MoreInfo2} />
+            <Route exact path="/cart" component={Cart2} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/sellerlogin" component={StoreLogin} />
             <Route component={Page404}/>
           </Switch>
           </CSSTransition>
